@@ -12,7 +12,7 @@ import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
 
 
-@WebServlet("*.pd") //상품
+@WebServlet("*.product") //상품
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,17 +45,6 @@ public class ProductController extends HttpServlet {
 		
 		ProductService service = new ProductServiceImpl();
 		
-		if(command.equals("/product/product_regist.pd")) {
-			
-			request.getRequestDispatcher("product_regist.jsp").forward(request, response);
-			
-		}else if(command.equals("/product/product_list.pd")) {
-			
-			response.sendRedirect("product_list.jsp");
-			
-		}else if(command.equals("/product/product_detail.pd")) {
-			request.getRequestDispatcher("product_detail.jsp");
-		}
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.cucu.controller;
 
 import java.io.IOException;
 
+import javax.print.attribute.PrintRequestAttributeSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,6 +40,11 @@ public class MemberController extends HttpServlet {
 		System.out.println(command);
 		
 		MemberService service = new MemberServiceImpl();
+		
+		if(command.equals("member_login.member")) {
+			
+			request.getRequestDispatcher("member_join.jsp");
+		}
 		
 		
 	}
