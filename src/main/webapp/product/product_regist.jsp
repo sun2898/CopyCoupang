@@ -5,7 +5,7 @@
 	<h3>상품등록 페이지</h3>
 	<hr>
 	
-	<form action="registProduct.pd" method="post">
+	<form action="registForm.pd" method="post">
 		<table border="1" width="500">
 			<tr>
 				<td>상품명</td>
@@ -16,7 +16,7 @@
 			<tr>
 				<td>판매자</td>
 				<td>
-					<input type="text" name="seller" value="" readonly="readonly" size="10" style="width: 50%;">
+					<input type="text" name="seller" value="" size="10" style="width: 50%;">
 				</td>
 			</tr>
 			<tr>
@@ -34,7 +34,7 @@
 			<tr>
 				<td>상품 설명</td>
 				<td>
-					<textarea rows="10" style="width: 100%;" name="content"></textarea>
+					<textarea rows="10" style="width: 100%;" name="p_detail"></textarea>
 				</td>
 			</tr>
 			

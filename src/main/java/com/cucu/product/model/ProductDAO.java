@@ -80,8 +80,8 @@ public class ProductDAO {
 			
 			while(rs.next()) {
 				String p_name = rs.getString("p_name");
-				String price = rs.getString("price");
-				String stock = rs.getString("stock");
+				int price = rs.getInt("price");
+				int stock = rs.getInt("stock");
 				String seller = rs.getString("seller");
 				String p_detail = rs.getString("p_detail");
 				Timestamp regdate = rs.getTimestamp("regdate");

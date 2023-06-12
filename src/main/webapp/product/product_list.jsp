@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<link rel="stylesheet" href="../css/main.css">    
 
 	<div class="container">
 		<h3>상품 목록</h3>
 		
-		<table class="table table-bordered">
+		<table class="table table-bordered" >
 			<thead>
 				<tr>
 					<th>상품명</th>
 					<th>가격</th>
-					<th>잔여재고량<th>
+					<th>잔여재고량</th>
 					<th>등록일</th>
 				</tr>
 			</thead>
@@ -30,7 +31,7 @@
 			
 			<tbody>
 				<tr>
-					<td colspan="6" align="right">
+					<td colspan="4" align="right">
 						<form action="" class="form-inline" >
 						  <div class="form-group">
 						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
