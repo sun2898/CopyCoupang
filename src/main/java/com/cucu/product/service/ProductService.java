@@ -1,5 +1,14 @@
 package com.cucu.product.service;
 
-public interface ProductService {
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.cucu.product.model.ProductVO;
+
+public interface ProductService {
+	void insertProduct(HttpServletRequest request, HttpServletResponse response);
+	
+	List<ProductVO> getList(HttpServletRequest request, HttpServletResponse response);
 }
