@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <p class="footer-text">Copyright &copy; By <span>E들의 무덤</span> 2023.06.14</p>
+                <p class="footer-text">Copyright &copy; By <span>'중앙산'</span> 2023.06.14</p>
             </div>
         </div>
     </div>

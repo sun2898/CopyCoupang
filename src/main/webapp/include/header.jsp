@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -53,11 +54,14 @@
         .brand .j {
             color: brown;
         }
-        .brand .a {
-            color: orange;
+        .brand .a1 {
+            color: brown;
         }
         .brand .p {
             color: red;
+        }
+        .brand .a {
+            color: orange;
         }
         .brand .n {
             color: yellow;
@@ -85,22 +89,32 @@
 	.navbar-nav li a {
     font-family: 'NeoSansPro-BoldItalic', sans-serif;
     font-size: 30px;
-}
+	}
+	.brand:hover {
+    cursor: pointer;
+	}
 	</style>
     
 </head>
 
 <body>
 	<!-- header -->
-	<div class="brand">
+	<div class="brand" onclick="goToHomePage()">
     <span class="j">J</span>
     <span class="j">J</span>
-    <span class="a">A</span>
-    <span class="p">P</span>
-    <span class="n">N</span>
-    <span class="g">G</span>
-</div>         
-    <div class="address-bar rainbow-text">세상에 이런 쇼핑몰은 없다 짭팡!</div>
+    <span class="a1">a</span>
+    <span class="p">p</span>
+    <span class="a">a</span>
+    <span class="n">n</span>
+    <span class="g">g</span>
+</div>
+
+	<script>
+		function goToHomePage() {
+    	location.href = '<%=request.getContextPath() %>/home.jsp';
+		}
+	</script>         
+    <div class="address-bar rainbow-text">세상에 이런 쇼핑몰은 없다 짭팡</div>
     
     <nav class="navbar navbar-default abc" role="navigation">
         <div class="container">
@@ -120,20 +134,30 @@
                 <ul class="nav navbar-nav">
                 	
                     <li>
-                        <a href="">HOME</a>
+                        <a href="<%=request.getContextPath() %>/home.jsp" style="color:black">홈</a>
                     </li>
                     <li>
-                        <a href="">PRODUCT</a>
+                        <a href="<%=request.getContextPath() %>/product/mainpage.member" style="color:black">상품</a>
+                    </li>
+                    
+                    <c:choose>
+                   	<c:when test="${sessionScope.member_id != null }">
+                    <li>
+                        <a href="<%=request.getContextPath() %>/member/member_mypage.member" style="color:blue">마이페이지</a>
                     </li>
                     <li>
-                        <a href="">BOARD</a>
+                        <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
+                    </li>
+                    </c:when>
+                    <c:otherwise>
+                    <li>
+                        <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">로그인</a>
                     </li>
                     <li>
-                        <a href="">LOGIN</a>
+                        <a href="<%=request.getContextPath() %>/member/member_join.member" style="color:red">회원가입</a>
                     </li>
-                    <li>
-                        <a href="" style="color:red">JOIN</a>
-                    </li>
+                    </c:otherwise>
+                    </c:choose>
                 </ul>
             </div>
             

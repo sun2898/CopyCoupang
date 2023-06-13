@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Welcome pangpang</title>
-<link rel="stylesheet" href="../css/main.css">
-</head>
+<%@ include file = "../include/header.jsp" %>
 <body>
 
 <div class="wrapper">
@@ -22,8 +16,8 @@
 				<h1>Search area</h1>
 			</div>
 			<div class="login_area">
-				<div class="login_button"><a href="/member/login">로그인</a></div>
-				<span><a href="/member/join">회원가입</a></span>
+				<div class="login_button"><a href="<%=request.getContextPath() %>/member/member_login.member">로그인</a></div>
+				<span><a href="<%=request.getContextPath() %>/member/member_join.member">회원가입</a></span>
 			</div>
 			<div class="clearfix"></div>			
 		</div>
@@ -38,3 +32,4 @@
 
 </body>
 </html>
+<%@ include file = "../include/footer.jsp" %>

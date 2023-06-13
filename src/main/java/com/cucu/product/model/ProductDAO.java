@@ -86,9 +86,9 @@ public class ProductDAO {
 				String p_detail = rs.getString("p_detail");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				
-				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
+				//ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
 				
-				list.add(vo);
+				//list.add(vo);
 			}
 			
 		} catch (Exception e) {

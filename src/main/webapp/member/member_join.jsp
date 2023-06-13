@@ -6,27 +6,27 @@
 	
 	<div align = "center">
 	<h3>회원가입</h3>
- 	<form action="" method ="post">
+ 	<form action="joinForm.member" method ="post">
  		<table border="1">
  			<tr>
  				<td>아이디</td>
- 				<td> <input type="text" name = "id" required="required" pattern = "\w{4,}"> </td>
+ 				<td> <input type="text" name = "m_id" required="required" pattern = "\w{4,}"> </td>
  			<tr/>
  			<tr>
  				<td>비밀번호</td>
- 				<td> <input type="password" name = "pw"> </td>
+ 				<td> <input type="password" name = "m_pw"> </td>
  			<tr/>
  			<tr>
  				<td>이름</td>
- 				<td> <input type="text" name = "name"> </td>
+ 				<td> <input type="text" name = "m_name"> </td>
  			<tr/>
  			<tr>
  				<td>이메일</td>
- 				<td> <input type="email" name = "email"> </td>
+ 				<td> <input type="email" name = "m_email"> </td>
  			<tr/>
  			<tr>
  				<td>주소</td>
- 				<td> <input type="text" name = "adress"> </td>
+ 				<td> <input type="text" name = "m_adress"> </td>
  			<tr/>
 		</table>
 		
