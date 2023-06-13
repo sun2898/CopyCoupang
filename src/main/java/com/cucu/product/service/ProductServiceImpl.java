@@ -14,13 +14,37 @@ public class ProductServiceImpl implements ProductService{
 	public void insertProduct(HttpServletRequest request, HttpServletResponse response) {
 		
 		String p_name = request.getParameter("p_name");
-		//int price = request.getParameter("price");
+
+		String price = request.getParameter("price");
+
 		String stock = request.getParameter("stock");
 		String seller = request.getParameter("seller");
 		String p_detail = request.getParameter("p_detail");
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		//dao.insertProduct(p_name, price, stock, seller, p_detail);
+	}
+
+	
+	@Override
+	public List<ProductVO> getList(HttpServletRequest request, HttpServletResponse response) {
+		
+		ProductDAO dao = ProductDAO.getInstance();
+		List<ProductVO> list = dao.getList();
+
+		return list;
+	}
+
+	@Override
+	public ProductVO getProduct(HttpServletRequest request, HttpServletResponse response) {
+		
+		ProductDAO dao = ProductDAO.getInstance();
+		
+		String name = request.getParameter("p_name");
+		System.out.println("프로덕트" + name);
+		ProductVO vo = dao.getProduct(name);
+		
+		return vo;
 	}
 
 }

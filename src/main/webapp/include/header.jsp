@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -134,16 +136,16 @@
                 <ul class="nav navbar-nav">
                 	
                     <li>
-                        <a href="<%=request.getContextPath() %>/member/home.jsp" style="color:black">홈</a>
+                        <a href="<%=request.getContextPath() %>/home.jsp" style="color:black">홈</a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath() %>/product/mainpage.member" style="color:black">상품</a>
+                        <a href="<%=request.getContextPath() %>/product/mainpage.pd" style="color:black">상품</a>
                     </li>
                     
                     <c:choose>
                    	<c:when test="${sessionScope.member_id != null }">
                     <li>
-                        <a href="<%=request.getContextPath() %>/member/member_mypage.member" style="color:blue">마이페이지</a>
+                        <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">마이페이지</a>
                     </li>
                     <li>
                         <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
@@ -166,4 +168,5 @@
         </div>
         <!-- /.container -->
     </nav>
+
  	<!-- end header -->

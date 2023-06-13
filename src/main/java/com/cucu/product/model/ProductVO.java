@@ -14,6 +14,7 @@ public class ProductVO {
 	public ProductVO() {	}
 
 	public ProductVO(String p_name, int price, int stock, String seller, String p_detail, Timestamp regdate) {
+
 		super();
 		this.p_name = p_name;
 		this.price = price;
@@ -21,6 +22,7 @@ public class ProductVO {
 		this.seller = seller;
 		this.p_detail = p_detail;
 		this.regdate = regdate;
+
 	}
 
 	public String getP_name() {

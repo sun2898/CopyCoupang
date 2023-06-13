@@ -10,25 +10,38 @@
 			<tr>
 				<td>상품명</td>
 				<td>
-					<input type="text" name="p_name" style="width: 100%;">
+
+
+					<input type="text" name="p_name" required="required" style="width: 100%;">
+
+
 				</td>
 			</tr>
 			<tr>
 				<td>판매자</td>
 				<td>
-					<input type="text" name="seller" value="" readonly="readonly" size="10" style="width: 50%;">
+
+
+					<input type="text" name="seller" required="required" size="10" style="width: 50%;">
+
 				</td>
 			</tr>
 			<tr>
 				<td>상품가격</td>
 				<td>
-					<input type="number" name="price">
+
+
+					<input type="text" required="required" name="price">
+
 				</td>
 			</tr>
 			<tr>
 				<td>등록수량</td>
 				<td>
-					<input type="number" name="stock">
+
+
+					<input type="text" required="required" name="stock">
+
 				</td>
 			</tr>
 			<tr>
@@ -37,7 +50,7 @@
 					<textarea rows="10" style="width: 100%;" name="content"></textarea>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td colspan="2">
 				<center>
