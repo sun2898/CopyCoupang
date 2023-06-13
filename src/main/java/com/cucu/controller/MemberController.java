@@ -89,6 +89,7 @@ public class MemberController extends HttpServlet {
 				session.setAttribute("member_id", vo.getM_id());
 				session.setAttribute("member_name", vo.getM_name());
 				session.setAttribute("member_pw", vo.getM_pw());
+				
 				response.sendRedirect("member_mypage.member");
 			}
 			
@@ -152,17 +153,16 @@ public class MemberController extends HttpServlet {
 				response.setContentType("text/html; charset=utf-8;");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('그동안 감사했습니다');");
-				out.println("alert('정상적으로 탈퇴되었습니다');");
-				out.println("location.href='member_login.member';");
+				out.println("alert('그동안 감사했습니다!');");
+				out.println("alert('정상적으로 탈퇴되었습니다!');");
+				out.println("location.href='home.jsp';");
 				out.println("</script>");
 				session.invalidate();
-				response.sendRedirect("member_delete.jsp");
 			}else { //비밀번토 틀릴 시
 				response.setContentType("text/html; charset=utf-8;");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('비밀번호를 틀리셨습니다');");
+				out.println("alert('비밀번호를 틀리셨습니다!');");
 				out.println("location.href='member_deleteForm.member';");
 				out.println("</script>");
 				

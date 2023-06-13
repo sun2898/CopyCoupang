@@ -10,7 +10,6 @@ public class ProductVO {
 	private String seller;
 	private String p_detail;
 	private Timestamp regdate;
-	private String filepath;
 	
 	public ProductVO() {	}
 
@@ -71,15 +70,5 @@ public class ProductVO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
-
-	public String getFilepath() {
-		return filepath;
-	}
-
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
-	}
-	
-	
 	 
 }

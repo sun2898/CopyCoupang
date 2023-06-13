@@ -1,5 +1,5 @@
 --상품테이블 생성
---컬럼 : 상품명, 가격, 재고, 판매자, 상품상세, 등록일, 상품이미지 경로
+--컬럼 : 상품명, 가격, 재고, 판매자, 상품상세, 등록일
 CREATE TABLE PRODUCT(
     P_NAME VARCHAR2(100) NOT NULL,
     PRICE NUMBER(10) NOT NULL,
@@ -10,8 +10,7 @@ CREATE TABLE PRODUCT(
 );
 --상품명 PK설정
 ALTER TABLE PRODUCT ADD CONSTRAINT P_NAME_PK PRIMARY KEY (P_NAME);
---상품이미지 경로 컬럼 추가
-ALTER TABLE PRODUCT ADD (FILE_PATH VARCHAR2(100));
+
 ============================================================================
 --회원테이블 생성
 CREATE TABLE MEMBER (

@@ -1,7 +1,6 @@
 package com.cucu.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cucu.product.model.ProductVO;
 import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
 
@@ -18,6 +16,7 @@ import com.cucu.product.service.ProductServiceImpl;
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+  
     public ProductController() {
         super();
     }
@@ -50,20 +49,12 @@ public class ProductController extends HttpServlet {
 			
 			request.getRequestDispatcher("product_regist.jsp").forward(request, response);
 			
-		} else if(command.equals("/product/registForm.pd")) {
+		}else if(command.equals("/product/product_list.pd")) {
 			
-			service.insertProduct(request, response);
-			response.sendRedirect("product_list.pd");
-		
-			
-		} else if(command.equals("/product/product_list.pd")) {
-			
-			List<ProductVO> list = service.getList(request, response);
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("product_list.jsp").forward(request, response);
+			response.sendRedirect("product_list.jsp");
 			
 		}else if(command.equals("/product/product_detail.pd")) {
-			request.getRequestDispatcher("product_detail.jsp").forward(request, response);
+			request.getRequestDispatcher("product_detail.jsp");
 		}
 	}
 	

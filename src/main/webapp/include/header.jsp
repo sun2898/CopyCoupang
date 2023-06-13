@@ -134,24 +134,16 @@
                 <ul class="nav navbar-nav">
                 	
                     <li>
-                        <a href="<%=request.getContextPath() %>/home.jsp" style="color:black">홈</a>
+                        <a href="<%=request.getContextPath() %>/member/home.jsp" style="color:black">홈</a>
                     </li>
                     <li>
-<<<<<<< HEAD
                         <a href="<%=request.getContextPath() %>/product/mainpage.member" style="color:black">상품</a>
-=======
-                        <a href="<%=request.getContextPath() %>/product/product_list.pd" style="color:black">상품</a>
->>>>>>> c42b1a9ee7aad8cd1ca5c8d0b6c8b885912829e1
                     </li>
                     
                     <c:choose>
                    	<c:when test="${sessionScope.member_id != null }">
                     <li>
-<<<<<<< HEAD
                         <a href="<%=request.getContextPath() %>/member/member_mypage.member" style="color:blue">마이페이지</a>
-=======
-                        <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">마이페이지</a>
->>>>>>> c42b1a9ee7aad8cd1ca5c8d0b6c8b885912829e1
                     </li>
                     <li>
                         <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
