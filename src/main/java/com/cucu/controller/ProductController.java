@@ -64,7 +64,7 @@ public class ProductController extends HttpServlet {
 			
 		//리스트출력
 		} else if(command.equals("/product/product_list2.pd")) {
-
+      
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list2.jsp").forward(request, response);

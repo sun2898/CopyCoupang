@@ -20,6 +20,7 @@ public class MemberServiceImpl implements MemberService{
 		String m_name = request.getParameter("m_name");
 		String m_email = request.getParameter("m_email");
 		String m_adress = request.getParameter("m_adress");
+		String m_type = request.getParameter("m_type");
 		
 		MemberDAO dao = MemberDAO.getInstance();
 		int result = dao.idCheck(m_id);
@@ -27,7 +28,7 @@ public class MemberServiceImpl implements MemberService{
 		if(result == 1) {
 			return 1;
 		}else {
-			MemberVO vo = new MemberVO(m_id, m_pw, m_name, m_email, m_adress, null);
+			MemberVO vo = new MemberVO(m_id, m_pw, m_name, m_email, m_adress, null, m_type);
 			dao.join(vo);
 		}
 		return 0;
@@ -68,8 +69,9 @@ public class MemberServiceImpl implements MemberService{
 		String m_name = request.getParameter("m_name");
 		String m_email = request.getParameter("m_email");
 		String m_adress = request.getParameter("m_adress");
+		String m_type = request.getParameter("m_type");
 		
-		MemberVO vo = new MemberVO(m_id, m_pw, m_name, m_email, m_adress, (Timestamp)null);
+		MemberVO vo = new MemberVO(m_id, m_pw, m_name, m_email, m_adress, null, m_type);
 		MemberDAO dao = MemberDAO.getInstance();
 		int result = dao.updateInfo(vo);
 		

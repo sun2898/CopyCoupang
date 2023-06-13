@@ -10,13 +10,15 @@ public class MemberVO {
 	private String m_email;
 	private String m_adress;
 	private Timestamp m_regdate;
+	private String m_type;
 	
 	//생성자
 	public MemberVO() {
 		
 	}
 
-	public MemberVO(String m_id, String m_pw, String m_name, String m_email, String m_adress, Timestamp m_regdate) {
+	public MemberVO(String m_id, String m_pw, String m_name, String m_email, String m_adress, Timestamp m_regdate,
+			String m_type) {
 		super();
 		this.m_id = m_id;
 		this.m_pw = m_pw;
@@ -24,8 +26,10 @@ public class MemberVO {
 		this.m_email = m_email;
 		this.m_adress = m_adress;
 		this.m_regdate = m_regdate;
+		this.m_type = m_type;
 	}
 
+	
 	//getter/setter
 	public String getM_id() {
 		return m_id;
@@ -74,12 +78,14 @@ public class MemberVO {
 	public void setM_regdate(Timestamp m_regdate) {
 		this.m_regdate = m_regdate;
 	}
-	
-	
+
+	public String getM_type() {
+		return m_type;
+	}
+
+	public void setM_type(String m_type) {
+		this.m_type = m_type;
+	}
 
 	
-	
-	
-	
-
 }

@@ -23,7 +23,6 @@ public class ProductServiceImpl implements ProductService{
 		
 		System.out.println(savePath);
 		
-		
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, enType, new DefaultFileRenamePolicy());
 			
 			String p_name = multi.getParameter("p_name");

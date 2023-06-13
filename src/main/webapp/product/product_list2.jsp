@@ -17,19 +17,43 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/product.css">
 </head>
+<style>
+		.rainbow {
+		  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+		  -webkit-background-clip: text;
+		  -webkit-text-fill-color: transparent;
+		  animation: sparkling 2s linear infinite;
+		}
+		
+		@keyframes sparkling {
+		  0% {
+		    background-position: 0% 50%;
+		    filter: hue-rotate(0deg);
+		  }
+		  100% {
+		    background-position: 100% 50%;
+		    filter: hue-rotate(360deg);
+		  }
+		}
+</style>
 <body>
     <div id="wrapper">
         <header>
             <div class="top">
-                <div>
-                    <a href="">로그인</a>
-                    <a href="">회원가입</a>
-                    <a href="">마이페이지</a>
-                    <a href="">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        장바구니
-                    </a>
-                </div>
+               <div>
+					<c:choose>
+                   	<c:when test="${sessionScope.member_id != null }">
+                        <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">마이페이지</a>
+                        <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">로그인</a>
+                        <a href="<%=request.getContextPath() %>/member/member_join.member" style="color:red">회원가입</a>
+                    </c:otherwise>
+                    </c:choose>
+						<a href=""> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
+				</div>
+
             </div>
             <div class="logo">
                 <div>
@@ -51,12 +75,14 @@
                         <li><a href="#">추천상품</a></li>
                         <li><a href="#">최신상품</a></li>
                         <li><a href="#">인기상품</a></li>
-                        <li><a href="#">할인상품</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#">쿠폰존</a></li>
-                        <li><a href="#">사용후기</a></li>
-                        <li><a href="#">개인결제</a></li>
+
+                        <li><a href="<%=request.getContextPath() %>/product/product_list2.pd" style="color:black" class="rainbow">짭팡상품!</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">쿠폰존</a></li>
+						<li><a href="<%=request.getContextPath() %>/review/review_list.member" style="color:black" class="rainbow">사용후기!</a></li>
+						<li><a href="#">개인결제</a></li>
+
                         <li><a href="#">고객센터</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
@@ -183,6 +209,7 @@
                     </li>
                 </ul> -->
                 <table>
+
                 	<tr>
                 		<td>
                 			상품사진
@@ -204,7 +231,6 @@
                             <img src="../img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
                         <td>  
-                        	                       
                            <a href="product_content.pd?p_name=${vo.p_name }">${vo.p_name }</a>
                         </td>
                         <td>
@@ -225,13 +251,14 @@
                     </tr>
                     </c:forEach>
                     <tr>
-                    	<td colspan="6" align="right">
-						<form action="" class="form-inline" >
-						  <div class="form-group">
-							<input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
-						  </div>
-						</form> 
-					</td>
+                       <td colspan="6" align="right">
+                  <form action="" class="form-inline" >
+                    <div class="form-group">
+                     <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
+                    </div>
+                  </form> 
+               </td>
+
                     </tr>
                 </table>
                 <div class="paging">

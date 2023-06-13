@@ -54,7 +54,7 @@ public class ProductDAO {
 			pstmt.setString(6, imgName);
 			pstmt.setString(7, imgPath);
 			
-			int result = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
