@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cucu.product.model.ProductVO;
 
 public interface ProductService {
-	void insertProduct(HttpServletRequest request, HttpServletResponse response);
 	
+	void insertProduct(HttpServletRequest request, HttpServletResponse response);
 	List<ProductVO> getList(HttpServletRequest request, HttpServletResponse response);
+	
 }
