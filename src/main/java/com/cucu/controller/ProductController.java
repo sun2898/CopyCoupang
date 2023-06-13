@@ -17,19 +17,15 @@ import com.cucu.product.service.ProductServiceImpl;
 @WebServlet("*.pd") //상품
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
     public ProductController() {
         super();
     }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		doAction(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doAction(request, response);
 		
 	}
@@ -63,8 +59,16 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list.jsp").forward(request, response);
 			
-		}else if(command.equals("/product/product_detail.pd")) {
+		} else if(command.equals("/product/product_detail.pd")) {
+			
+			ProductVO vo = service.getProduct(request, response);
+			request.setAttribute("vo", vo);
+			
 			request.getRequestDispatcher("product_detail.jsp").forward(request, response);
+		} else if(command.equals("/product/mainpage.pd")) {
+			
+			response.sendRedirect("mainpage.jsp");
+			
 		}
 	}
 	

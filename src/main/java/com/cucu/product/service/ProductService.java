@@ -11,4 +11,6 @@ public interface ProductService {
 	void insertProduct(HttpServletRequest request, HttpServletResponse response);
 	
 	List<ProductVO> getList(HttpServletRequest request, HttpServletResponse response);
+	
+	ProductVO getProduct(HttpServletRequest request, HttpServletResponse response);
 }

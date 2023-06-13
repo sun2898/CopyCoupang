@@ -32,6 +32,18 @@ public class ProductServiceImpl implements ProductService{
 
 		return list;
 	}
+
+
+	@Override
+	public ProductVO getProduct(HttpServletRequest request, HttpServletResponse response) {
+		
+		ProductDAO dao = ProductDAO.getInstance();
+		
+		String id = request.getParameter("p_name");
+		ProductVO vo = dao.getProduct(id);
+		
+		return vo;
+	}
 	
 	
 }

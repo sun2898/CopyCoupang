@@ -10,10 +10,14 @@ public class ProductVO {
 	private String seller;
 	private String p_detail;
 	private Timestamp regdate;
+	private String path;
 	
-	public ProductVO() {	}
+	public ProductVO() {
+		// TODO Auto-generated constructor stub
+	}
 
-	public ProductVO(String p_name, int price, int stock, String seller, String p_detail, Timestamp regdate) {
+	public ProductVO(String p_name, int price, int stock, String seller, String p_detail, Timestamp regdate,
+			String path) {
 		super();
 		this.p_name = p_name;
 		this.price = price;
@@ -21,6 +25,7 @@ public class ProductVO {
 		this.seller = seller;
 		this.p_detail = p_detail;
 		this.regdate = regdate;
+		this.path = path;
 	}
 
 	public String getP_name() {
@@ -70,5 +75,14 @@ public class ProductVO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
 	 
 }

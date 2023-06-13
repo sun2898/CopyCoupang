@@ -20,7 +20,7 @@
 			<tbody>
 				<c:forEach var="vo" items="${list }" varStatus="x">
 				<tr>
-					<td>${vo.p_name}</td>
+					<td><a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name}</a></td>
 					<td>${vo.price }</td>
 					<td>${vo.stock }</td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd (E)"/> </td>

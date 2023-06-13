@@ -1,6 +1,7 @@
 package com.cucu.product.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class ProductDAO {
 	}
 	
 	//데이터베이스 연결주소 + 오라클 커넥터
-	private String url = "jdbc:oracle:thin:@172.30.1.67:1521:xe";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
 	private String uid = "JSPPN";
 	private String upw = "JSPPN";
 	
@@ -85,12 +86,10 @@ public class ProductDAO {
 				String seller = rs.getString("seller");
 				String p_detail = rs.getString("p_detail");
 				Timestamp regdate = rs.getTimestamp("regdate");
-				
-				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
-				
+				String path = rs.getString("FILE_PATH");
+				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate,path);
 				list.add(vo);
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -101,8 +100,47 @@ public class ProductDAO {
 			} catch (Exception e2) {
 			}
 		}
-		
 		return list;
 	}
+	
+	public ProductVO getProduct(String p_name) {
+		ProductVO vo = new ProductVO();
+		String sql = "select * from product where p_name = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p_name);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				String name = rs.getString("P_NAME");
+				int price = rs.getInt("PRICE");
+				int stock = rs.getInt("STOCK");
+				String seller = rs.getString("SELLER");
+				String p_detail = rs.getString("P_DETAIL");
+				Timestamp regdate = rs.getTimestamp("REGDATE");
+				String path = rs.getString("FILE_PATH");
+				vo = new ProductVO(name, price, stock, seller, p_detail, regdate, path);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return vo;
+	}
+	
+	
+	
+	
+	
 	
 }
