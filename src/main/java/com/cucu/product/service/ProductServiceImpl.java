@@ -1,7 +1,6 @@
 package com.cucu.product.service;
 
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,8 +13,9 @@ public class ProductServiceImpl implements ProductService{
 	public void insertProduct(HttpServletRequest request, HttpServletResponse response) {
 		
 		String p_name = request.getParameter("p_name");
-		int price = Integer.parseInt(request.getParameter("price"));
-		int stock = Integer.parseInt(request.getParameter("stock"));
+
+		String price = request.getParameter("price");
+		String stock = request.getParameter("stock");
 		String seller = request.getParameter("seller");
 		String p_detail = request.getParameter("p_detail");
 		
@@ -33,7 +33,6 @@ public class ProductServiceImpl implements ProductService{
 		return list;
 	}
 
-
 	@Override
 	public ProductVO getProduct(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -45,6 +44,5 @@ public class ProductServiceImpl implements ProductService{
 		
 		return vo;
 	}
-	
-	
+
 }

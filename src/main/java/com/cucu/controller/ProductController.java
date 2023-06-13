@@ -21,7 +21,8 @@ import com.cucu.review.service.ReviewServiceImplements;
 @WebServlet("*.pd") //상품
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public ProductController() {
+
+  public ProductController() {
         super();
     }
 	
@@ -57,7 +58,6 @@ public class ProductController extends HttpServlet {
 			
 			service.insertProduct(request, response);
 			response.sendRedirect("product_list.pd");
-		
 			
 		} else if(command.equals("/product/product_list.pd")) {
 			
@@ -65,6 +65,7 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list.jsp").forward(request, response);
 			
+
 		} else if(command.equals("/product/product_detail.pd")) {
 			List<ReviewVO> list = rservice.getReview(request, response);
 			ProductVO vo = service.getProduct(request, response);
@@ -75,8 +76,6 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/product/mainpage.pd")) {
 			
 			response.sendRedirect("mainpage.jsp");
-			
-		}
 	}
 	
 }

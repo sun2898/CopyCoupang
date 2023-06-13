@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<link rel="stylesheet" href="../css/main.css">    
+<link rel="stylesheet" href="../css/listmain.css">    
 
 	<div class="container">
 		<h3>상품 목록</h3>
-		
+
 		<table class="table table-bordered" >
 			<thead>
 				<tr>
@@ -25,6 +27,7 @@
 					<td>${vo.stock }</td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd (E)"/> </td>
  			<%-- 		<td><a href="board_content.board?bno=${vo.bno }">${vo.title }</a></td> --%>
+
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -47,9 +50,9 @@
 	</div>
 
 
-
-
-
 <form>
 	
 </form>
+
+<%@ include file="../include/footer.jsp" %>
+

@@ -1,7 +1,6 @@
 package com.cucu.product.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +24,7 @@ public class ProductDAO {
 	public static ProductDAO getInstance() {
 		return instance;
 	}
-	
+
 	//데이터베이스 연결주소 + 오라클 커넥터
 	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
 	private String uid = "JSPPN";
@@ -35,7 +34,8 @@ public class ProductDAO {
 	 * 
 	 * @author 20230612 김유리
 	 */
-	public void insertProduct(String p_name, int price, int stock, String seller, String p_detail) {
+
+	public void insertProduct(String p_name, String price, String stock, String seller, String p_detail) {
 		
 		String sql = "INSERT INTO PRODUCT(P_NAME, PRICE, STOCK, SELLER, P_DETAIL) VALUES(?, ?, ?, ?, ?)";
 		
@@ -46,12 +46,14 @@ public class ProductDAO {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_name);
+
 			pstmt.setInt(2, price);
 			pstmt.setInt(3, stock);
 			pstmt.setString(4, seller);
 			pstmt.setString(5, p_detail);
 			
 			pstmt.executeUpdate();
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,7 +68,8 @@ public class ProductDAO {
 
 	public List<ProductVO> getList(){
 		
-		List<ProductVO> list = new ArrayList<>();
+
+		List<ProductVO> list = new ArrayList();
 		
 		String sql = "SELECT * FROM PRODUCT";
 		
@@ -86,8 +89,8 @@ public class ProductDAO {
 				String seller = rs.getString("seller");
 				String p_detail = rs.getString("p_detail");
 				Timestamp regdate = rs.getTimestamp("regdate");
-				String path = rs.getString("FILE_PATH");
-				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate,path);
+				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
+				
 				list.add(vo);
 			}
 		} catch (Exception e) {
@@ -100,6 +103,7 @@ public class ProductDAO {
 			} catch (Exception e2) {
 			}
 		}
+
 		return list;
 	}
 	
@@ -137,10 +141,5 @@ public class ProductDAO {
 		}
 		return vo;
 	}
-	
-	
-	
-	
-	
-	
+
 }
