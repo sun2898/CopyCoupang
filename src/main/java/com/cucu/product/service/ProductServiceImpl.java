@@ -1,6 +1,7 @@
 package com.cucu.product.service;
 
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,12 +16,13 @@ public class ProductServiceImpl implements ProductService{
 		String p_name = request.getParameter("p_name");
 
 		String price = request.getParameter("price");
+
 		String stock = request.getParameter("stock");
 		String seller = request.getParameter("seller");
 		String p_detail = request.getParameter("p_detail");
 		
 		ProductDAO dao = ProductDAO.getInstance();
-		dao.insertProduct(p_name, price, stock, seller, p_detail);
+		//dao.insertProduct(p_name, price, stock, seller, p_detail);
 	}
 
 	

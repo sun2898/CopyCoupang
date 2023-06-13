@@ -5,13 +5,15 @@
 	<h3>상품등록 페이지</h3>
 	<hr>
 	
-	<form action="registForm.pd" method="post">
+	<form action="registProduct.pd" method="post">
 		<table border="1" width="500">
 			<tr>
 				<td>상품명</td>
 				<td>
 
+
 					<input type="text" name="p_name" required="required" style="width: 100%;">
+
 
 				</td>
 			</tr>
@@ -19,27 +21,33 @@
 				<td>판매자</td>
 				<td>
 
+
 					<input type="text" name="seller" required="required" size="10" style="width: 50%;">
+
 				</td>
 			</tr>
 			<tr>
 				<td>상품가격</td>
 				<td>
 
+
 					<input type="text" required="required" name="price">
+
 				</td>
 			</tr>
 			<tr>
 				<td>등록수량</td>
 				<td>
 
+
 					<input type="text" required="required" name="stock">
+
 				</td>
 			</tr>
 			<tr>
 				<td>상품 설명</td>
 				<td>
-					<textarea rows="10" style="width: 100%;" name="p_detail"></textarea>
+					<textarea rows="10" style="width: 100%;" name="content"></textarea>
 				</td>
 			</tr>
 

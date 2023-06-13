@@ -1,7 +1,6 @@
 package com.cucu.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.cucu.product.model.ProductVO;
 import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
 import com.cucu.review.model.ReviewVO;
@@ -22,7 +20,9 @@ import com.cucu.review.service.ReviewServiceImplements;
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+
   public ProductController() {
+
         super();
     }
 	
@@ -54,7 +54,7 @@ public class ProductController extends HttpServlet {
 			
 			request.getRequestDispatcher("product_regist.jsp").forward(request, response);
 			
-		} else if(command.equals("/product/registForm.pd")) {
+		}else if(command.equals("/product/product_list.pd")) {
 			
 			service.insertProduct(request, response);
 			response.sendRedirect("product_list.pd");
@@ -76,6 +76,7 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/product/mainpage.pd")) {
 			
 			response.sendRedirect("mainpage.jsp");
+
 	}
 	
 }
