@@ -10,6 +10,7 @@ public class ProductVO {
 	private String seller;
 	private String p_detail;
 	private Timestamp regdate;
+	private String thubImg;
 	
 	public ProductVO() {	}
 

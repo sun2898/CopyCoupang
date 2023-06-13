@@ -26,7 +26,7 @@ public class ProductDAO {
 	}
 	
 	//데이터베이스 연결주소 + 오라클 커넥터
-	private String url = "jdbc:oracle:thin:@172.30.1.67:1521:xe";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
 	private String uid = "JSPPN";
 	private String upw = "JSPPN";
 	
@@ -52,7 +52,8 @@ public class ProductDAO {
 			pstmt.setString(4, seller);
 			pstmt.setString(5, p_detail);
 			
-			pstmt.executeUpdate();
+			int result = pstmt.executeUpdate();
+			System.out.println(result);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -93,7 +94,7 @@ public class ProductDAO {
 				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
 
 				
-				//list.add(vo);
+				list.add(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

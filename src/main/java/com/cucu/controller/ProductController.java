@@ -51,21 +51,23 @@ public class ProductController extends HttpServlet {
 
 		ProductService service = new ProductServiceImpl();
 		ReviewService rservice = new ReviewServiceImplements();
-
+		
+		//상품등록화면
 		if(command.equals("/product/product_regist.pd")) {
 
 			request.getRequestDispatcher("product_regist.jsp").forward(request, response);
-
-		}else if(command.equals("/product/product_list.pd")) {
+		
+		//상품등록기능
+		}else if(command.equals("/product/registProduct.pd")) {
 
 			service.insertProduct(request, response);
-			response.sendRedirect("product_list.pd");
-
-		} else if(command.equals("/product/product_list.pd")) {
-
+			response.sendRedirect("product_list2.pd");
+			
+		//리스트출력
+		} else if(command.equals("/product/product_list2.pd")) {
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("product_list.jsp").forward(request, response);
+			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
 
 
 		} else if(command.equals("/product/product_detail.pd")) {
@@ -79,7 +81,7 @@ public class ProductController extends HttpServlet {
 
 			response.sendRedirect("mainpage.jsp");
 
-		}
+		} 
 
 	}
 }

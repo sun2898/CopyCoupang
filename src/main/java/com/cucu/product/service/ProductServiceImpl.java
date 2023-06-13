@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService{
 		String p_detail = request.getParameter("p_detail");
 		
 		ProductDAO dao = ProductDAO.getInstance();
-		//dao.insertProduct(p_name, price, stock, seller, p_detail);
+		dao.insertProduct(p_name, price, stock, seller, p_detail);
 	}
 
 	
