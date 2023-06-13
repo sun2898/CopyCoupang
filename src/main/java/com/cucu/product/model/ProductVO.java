@@ -10,11 +10,11 @@ public class ProductVO {
 	private String seller;
 	private String p_detail;
 	private Timestamp regdate;
-	private String filepath;
 	
 	public ProductVO() {	}
 
 	public ProductVO(String p_name, int price, int stock, String seller, String p_detail, Timestamp regdate) {
+
 		super();
 		this.p_name = p_name;
 		this.price = price;
@@ -22,6 +22,7 @@ public class ProductVO {
 		this.seller = seller;
 		this.p_detail = p_detail;
 		this.regdate = regdate;
+
 	}
 
 	public String getP_name() {
@@ -71,15 +72,5 @@ public class ProductVO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
-
-	public String getFilepath() {
-		return filepath;
-	}
-
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
-	}
-	
-	
 	 
 }

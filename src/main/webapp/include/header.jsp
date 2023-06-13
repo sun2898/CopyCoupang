@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -137,7 +138,7 @@
                         <a href="<%=request.getContextPath() %>/home.jsp" style="color:black">홈</a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath() %>/product/product_list.pd" style="color:black">상품</a>
+                        <a href="<%=request.getContextPath() %>/product/mainpage.pd" style="color:black">상품</a>
                     </li>
                     
                     <c:choose>

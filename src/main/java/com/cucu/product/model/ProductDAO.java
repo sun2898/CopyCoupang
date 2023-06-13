@@ -30,11 +30,11 @@ public class ProductDAO {
 	private String uid = "JSPPN";
 	private String upw = "JSPPN";
 	
-	
 	/**
 	 * 
 	 * @author 20230612 김유리
 	 */
+
 	public void insertProduct(String p_name, String price, String stock, String seller, String p_detail) {
 		
 		String sql = "INSERT INTO PRODUCT(P_NAME, PRICE, STOCK, SELLER, P_DETAIL) VALUES(?, ?, ?, ?, ?)";
@@ -46,13 +46,14 @@ public class ProductDAO {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_name);
-			pstmt.setString(2, price);
-			pstmt.setString(3, stock);
+
+			pstmt.setInt(2, price);
+			pstmt.setInt(3, stock);
 			pstmt.setString(4, seller);
 			pstmt.setString(5, p_detail);
 			
-			int result = pstmt.executeUpdate();
-			System.out.println(result);
+			pstmt.executeUpdate();
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,6 +68,7 @@ public class ProductDAO {
 
 	public List<ProductVO> getList(){
 		
+
 		List<ProductVO> list = new ArrayList();
 		
 		String sql = "SELECT * FROM PRODUCT";
@@ -86,13 +88,11 @@ public class ProductDAO {
 				int stock = rs.getInt("stock");
 				String seller = rs.getString("seller");
 				String p_detail = rs.getString("p_detail");
-				Timestamp regdate = rs.getTimestamp("regdate");	
-				
+				Timestamp regdate = rs.getTimestamp("regdate");
 				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
 				
 				list.add(vo);
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -103,8 +103,43 @@ public class ProductDAO {
 			} catch (Exception e2) {
 			}
 		}
-		
+
 		return list;
 	}
 	
+	public ProductVO getProduct(String p_name) {
+		ProductVO vo = new ProductVO();
+		String sql = "select * from product where p_name = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p_name);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				String name = rs.getString("P_NAME");
+				int price = rs.getInt("PRICE");
+				int stock = rs.getInt("STOCK");
+				String seller = rs.getString("SELLER");
+				String p_detail = rs.getString("P_DETAIL");
+				Timestamp regdate = rs.getTimestamp("REGDATE");
+				String path = rs.getString("FILE_PATH");
+				vo = new ProductVO(name, price, stock, seller, p_detail, regdate, path);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return vo;
+	}
+
 }

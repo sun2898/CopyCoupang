@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -7,6 +8,7 @@
 
 	<div class="container">
 		<h3>상품 목록</h3>
+
 		<table class="table table-bordered" >
 			<thead>
 				<tr>
@@ -20,11 +22,12 @@
 			<tbody>
 				<c:forEach var="vo" items="${list }" varStatus="x">
 				<tr>
-					<td><a href="${vo.p_name}">${vo.p_name}</a></td>
+					<td><a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name}</a></td>
 					<td>${vo.price }</td>
 					<td>${vo.stock }</td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd (E)"/> </td>
-<%-- 					<td><a href="board_content.board?bno=${vo.bno }">${vo.title }</a></td> --%>
+ 			<%-- 		<td><a href="board_content.board?bno=${vo.bno }">${vo.title }</a></td> --%>
+
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -46,4 +49,10 @@
 		</table>
 	</div>
 
+
+<form>
+	
+</form>
+
 <%@ include file="../include/footer.jsp" %>
+
