@@ -10,11 +10,12 @@ public class ProductVO {
 	private String seller;
 	private String p_detail;
 	private Timestamp regdate;
-	private String thubImg;
+	private String imgName; //파일명
+	private String imgPath; //파일경로
 	
 	public ProductVO() {	}
 
-	public ProductVO(String p_name, int price, int stock, String seller, String p_detail, Timestamp regdate) {
+	public ProductVO(String p_name, int price, int stock, String seller, String p_detail, Timestamp regdate, String imgName, String imgPath) {
 
 		super();
 		this.p_name = p_name;
@@ -23,6 +24,8 @@ public class ProductVO {
 		this.seller = seller;
 		this.p_detail = p_detail;
 		this.regdate = regdate;
+		this.imgName = imgName;
+		this.imgPath = imgPath;
 
 	}
 
@@ -73,5 +76,23 @@ public class ProductVO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
+
+	public String getImgName() {
+		return imgName;
+	}
+
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+	
+	
 	 
 }

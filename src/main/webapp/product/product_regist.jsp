@@ -38,7 +38,7 @@ td {
 		</section>
 	<hr>
 	
-	<form action="registProduct.pd" method="post">
+	<form action="registProduct.pd" method="post" enctype="multipart/form-data">
 		<table border="1" width="500">
 			<tr>
 				<td>상품명</td>
@@ -67,13 +67,15 @@ td {
 			<tr>
 				<td>상품 설명</td>
 				<td>
-					<textarea rows="10" style="width: 100%;" name="content"></textarea>
+					<textarea rows="10" style="width: 100%;" name="p_detail"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>상품이미지</td>
 				<td>
-					<input type="file" id="image" accept="image/*" onchange="setThumbnail(event);"/>
+
+					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);"/>
+
 					<div id="image_container"></div>
 					<script>
 				      function setThumbnail(event) {

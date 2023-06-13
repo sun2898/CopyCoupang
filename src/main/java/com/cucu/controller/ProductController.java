@@ -39,7 +39,6 @@ public class ProductController extends HttpServlet {
 
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.setAttribute("m_id", "hong");
 		request.setCharacterEncoding("UTF-8");
 
 		String uri = request.getRequestURI();
@@ -65,6 +64,7 @@ public class ProductController extends HttpServlet {
 			
 		//리스트출력
 		} else if(command.equals("/product/product_list2.pd")) {
+      
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list2.jsp").forward(request, response);

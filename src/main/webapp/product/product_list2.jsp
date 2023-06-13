@@ -53,6 +53,7 @@
                     </c:choose>
 						<a href=""> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
 				</div>
+
             </div>
             <div class="logo">
                 <div>
@@ -74,12 +75,14 @@
                         <li><a href="#">추천상품</a></li>
                         <li><a href="#">최신상품</a></li>
                         <li><a href="#">인기상품</a></li>
+
                         <li><a href="<%=request.getContextPath() %>/product/product_list2.pd" style="color:black" class="rainbow">짭팡상품!</a></li>
 					</ul>
 					<ul>
 						<li><a href="#">쿠폰존</a></li>
 						<li><a href="<%=request.getContextPath() %>/review/review_list.member" style="color:black" class="rainbow">사용후기!</a></li>
 						<li><a href="#">개인결제</a></li>
+
                         <li><a href="#">고객센터</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
@@ -206,28 +209,28 @@
                     </li>
                 </ul> -->
                 <table>
-                   <tr>
-                      <td>
-                         상품사진
-                      </td>
-                      <td>
-                         상품명
-                      </td>
-                      <td>
-                         가격
-                      </td>
-                      <td>
-                         판매자
-                      </td>
-                   </tr>
-                   <c:forEach var="vo" items="${list }" varStatus="x">
+
+                	<tr>
+                		<td>
+                			상품사진
+                		</td>
+                		<td>
+                			상품명
+                		</td>
+                		<td>
+                			가격
+                		</td>
+                		<td>
+                			판매자
+                		</td>
+                	</tr>
+                	<c:forEach var="vo" items="${list }" varStatus="x">
                     <tr>
-                       
+                    	
                         <td><a href="product_content.pd?p_name=${vo.p_name }" class="thumb">
-                            <img src="../img/귀여우.jpg" alt="상품이미지">
+                            <img src="../img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
                         <td>  
-                                                  
                            <a href="product_content.pd?p_name=${vo.p_name }">${vo.p_name }</a>
                         </td>
                         <td>
@@ -255,6 +258,7 @@
                     </div>
                   </form> 
                </td>
+
                     </tr>
                 </table>
                 <div class="paging">

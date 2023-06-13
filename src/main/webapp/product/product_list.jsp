@@ -9,15 +9,14 @@
 
 	<div class="container">
 		<h3>상품 목록</h3>
-
-
+		
 		<table class="table table-bordered" >
 
 			<thead>
 				<tr>
 					<th>상품명</th>
 					<th>가격</th>
-					<th>잔여재고량<th>
+					<th>잔여재고량</th>
 					<th>등록일</th>
 				</tr>
 			</thead>
