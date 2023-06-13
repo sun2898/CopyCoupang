@@ -26,8 +26,8 @@
 	
 	<div class="xx">
 	
-	<form action="regiFrom.review" method="post" >
-		<table border="1" width="600" >
+	<form action="regiFrom.review" method="post">
+		<table border="1" width="600">
 		
 			<tr align="center" valign="middle">
 				<td>상품 정보</td>
