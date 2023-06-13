@@ -197,13 +197,15 @@
                 			판매자
                 		</td>
                 	</tr>
+                	<c:forEach var="vo" items="${list }" varStatus="x">
                     <tr>
-                        <td><a href="#" class="thumb">
-                            <img src="	https://via.placeholder.com/120x120" alt="상품이미지">
+                    	
+                        <td><a href="product_content.pd?p_name=${vo.p_name }" class="thumb">
+                            <img src="../img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
-                        <td>
-                            <h3 class="name">상품명</h3>
-                            <a href="#" class="desc">상품설명</a>
+                        <td>  
+                        	                       
+                           <a href="product_content.pd?p_name=${vo.p_name }">${vo.p_name }</a>
                         </td>
                         <td>
                             <ul>
@@ -213,12 +215,23 @@
                                     <span class="discount">10%</span>
                                 </li>
                                 <li><span class="free-delivery">무료배송</span></li> -->
-                                <li><fmt:formatNumber value="35000" pattern="0,000원"/></li>
+                                <li><fmt:formatNumber value="${vo.price }" pattern="0,000원"/></li>
                             </ul>
                         </td>
                         <td>
-                            <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i> 판매자</h4>
+                            <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>${vo.seller }</h4>
                         </td>
+                        
+                    </tr>
+                    </c:forEach>
+                    <tr>
+                    	<td colspan="6" align="right">
+						<form action="" class="form-inline" >
+						  <div class="form-group">
+							<input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
+						  </div>
+						</form> 
+					</td>
                     </tr>
                 </table>
                 <div class="paging">

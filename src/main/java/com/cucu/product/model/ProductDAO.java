@@ -26,7 +26,7 @@ public class ProductDAO {
 	}
 	
 	//데이터베이스 연결주소 + 오라클 커넥터
-	private String url = "jdbc:oracle:thin:@172.30.1.67:1521:xe";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
 	private String uid = "JSPPN";
 	private String upw = "JSPPN";
 	
@@ -36,9 +36,9 @@ public class ProductDAO {
 	 */
 
 
-	public void insertProduct(String p_name, String price, String stock, String seller, String p_detail) {
+	public void insertProduct(String p_name, String price, String stock, String seller, String p_detail, String imgName, String imgPath) {
 
-		String sql = "INSERT INTO PRODUCT(P_NAME, PRICE, STOCK, SELLER, P_DETAIL) VALUES(?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO PRODUCT(P_NAME, PRICE, STOCK, SELLER, P_DETAIL, IMGNAME, IMGPATH) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -51,8 +51,10 @@ public class ProductDAO {
 			pstmt.setString(3, stock);
 			pstmt.setString(4, seller);
 			pstmt.setString(5, p_detail);
+			pstmt.setString(6, imgName);
+			pstmt.setString(7, imgPath);
 			
-			pstmt.executeUpdate();
+			int result = pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,11 +91,13 @@ public class ProductDAO {
 				String seller = rs.getString("seller");
 				String p_detail = rs.getString("p_detail");
 				Timestamp regdate = rs.getTimestamp("regdate");
+				String imgName = rs.getString("imgName");
+				String imgPath = rs.getString("imgPath");
 
-				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate);
+				ProductVO vo = new ProductVO(p_name, price, stock, seller, p_detail, regdate, imgName, imgPath);
 
 				
-				//list.add(vo);
+				list.add(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -127,8 +131,9 @@ public class ProductDAO {
 				String seller = rs.getString("SELLER");
 				String p_detail = rs.getString("P_DETAIL");
 				Timestamp regdate = rs.getTimestamp("REGDATE");
-//				String path = rs.getString("FILE_PATH");
-				vo = new ProductVO(name, price, stock, seller, p_detail, regdate);
+				String imgName = rs.getString("IMGNAME");
+				String imgPath = rs.getString("IMGPATH");
+				vo = new ProductVO(name, price, stock, seller, p_detail, regdate, imgName, imgPath);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
