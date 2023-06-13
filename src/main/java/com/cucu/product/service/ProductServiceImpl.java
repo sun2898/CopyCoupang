@@ -39,8 +39,9 @@ public class ProductServiceImpl implements ProductService{
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
-		String id = request.getParameter("p_name");
-		ProductVO vo = dao.getProduct(id);
+		String name = request.getParameter("p_name");
+		System.out.println("프로덕트" + name);
+		ProductVO vo = dao.getProduct(name);
 		
 		return vo;
 	}

@@ -24,7 +24,7 @@
 					<td>${vo.price }</td>
 					<td>${vo.stock }</td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd (E)"/> </td>
-<%-- 					<td><a href="board_content.board?bno=${vo.bno }">${vo.title }</a></td> --%>
+ 			<%-- 		<td><a href="board_content.board?bno=${vo.bno }">${vo.title }</a></td> --%>
 				</tr>
 				</c:forEach>
 			</tbody>
