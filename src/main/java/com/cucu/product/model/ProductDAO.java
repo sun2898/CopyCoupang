@@ -47,8 +47,8 @@ public class ProductDAO {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_name);
-			pstmt.setInt(2, price);
-			pstmt.setInt(3, stock);
+			pstmt.setString(2, price);
+			pstmt.setString(3, stock);
 			pstmt.setString(4, seller);
 			pstmt.setString(5, p_detail);
 			
@@ -84,8 +84,8 @@ public class ProductDAO {
 			
 			while(rs.next()) {
 				String p_name = rs.getString("p_name");
-				String price = rs.getString("price");
-				String stock = rs.getString("stock");
+				int price = rs.getInt("price");
+				int stock = rs.getInt("stock");
 				String seller = rs.getString("seller");
 				String p_detail = rs.getString("p_detail");
 				Timestamp regdate = rs.getTimestamp("regdate");
@@ -127,8 +127,8 @@ public class ProductDAO {
 				String seller = rs.getString("SELLER");
 				String p_detail = rs.getString("P_DETAIL");
 				Timestamp regdate = rs.getTimestamp("REGDATE");
-				String path = rs.getString("FILE_PATH");
-				vo = new ProductVO(name, price, stock, seller, p_detail, regdate, path);
+//				String path = rs.getString("FILE_PATH");
+				vo = new ProductVO(name, price, stock, seller, p_detail, regdate);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

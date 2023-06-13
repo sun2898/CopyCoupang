@@ -14,9 +14,7 @@ public class ProductServiceImpl implements ProductService{
 	public void insertProduct(HttpServletRequest request, HttpServletResponse response) {
 		
 		String p_name = request.getParameter("p_name");
-
 		String price = request.getParameter("price");
-
 		String stock = request.getParameter("stock");
 		String seller = request.getParameter("seller");
 		String p_detail = request.getParameter("p_detail");
