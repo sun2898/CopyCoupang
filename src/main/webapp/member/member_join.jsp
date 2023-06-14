@@ -39,11 +39,11 @@ td {
 					<tr />
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" name="m_pw"></td>
+						<td><input type="password" name="m_pw" required="required"></td>
 					<tr />
 					<tr>
 						<td>이름</td>
-						<td><input type="text" name="m_name"></td>
+						<td><input type="text" name="m_name" required="required"></td>
 					<tr />
 					<tr>
 						<td>이메일</td>
@@ -51,7 +51,7 @@ td {
 					<tr />
 					<tr>
 						<td>주소</td>
-						<td><input type="text" name="m_adress"></td>
+						<td><input type="text" name="m_adress" required="required"></td>
 					<tr />
 					<td>회원타입</td>
 	 				<td> 

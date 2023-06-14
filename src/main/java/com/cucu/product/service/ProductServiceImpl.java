@@ -69,6 +69,7 @@ public class ProductServiceImpl implements ProductService{
 	public void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
 		
 		String p_name = request.getParameter("p_name");
+		System.out.println(p_name);
 		ProductDAO dao = ProductDAO.getInstance();
 		dao.deleteProduct(p_name);
 		

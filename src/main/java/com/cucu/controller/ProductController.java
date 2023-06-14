@@ -84,11 +84,7 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 
 			request.getRequestDispatcher("product_detail.jsp").forward(request, response);
-		} else if(command.equals("/product/mainpage.pd")) {
-
-			response.sendRedirect("mainpage.jsp");
-			
-		}  else if(command.equals("/product/product_cart.pd")) {
+		}   else if(command.equals("/product/product_cart.pd")) {
 			List<CartVO> list = cservice.getCart(request, response);
 			request.setAttribute("list", list);
 
@@ -112,7 +108,6 @@ public class ProductController extends HttpServlet {
 
 		//나의판매목록
 		} else if(command.equals("/product/member_myselllist.pd")) {
-
 			
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
@@ -141,6 +136,20 @@ public class ProductController extends HttpServlet {
 			cservice.clearCart(request, response);
 			response.sendRedirect(conPath +"/member/home.member");
 
+		} else if(command.equals("/product/deleteProduct.pd")) {
+			
+			
+			service.deleteProduct(request, response);
+			
+			response.setContentType("text/html; charset=utf-8;");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('안녕하세요');");
+			out.println("</script>");
+			
+			response.sendRedirect("member_myselllist.pd");
+			
+			
 		}
 
 	}

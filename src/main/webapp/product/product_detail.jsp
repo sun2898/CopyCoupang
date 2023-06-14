@@ -36,7 +36,7 @@
         #product > .view > .info > div {
             float: left;
             width: 50%;
-            height: 100%;
+            height: 80%;
             padding: 10px;
             box-sizing: border-box;
         }
@@ -479,7 +479,7 @@
             <section class="view">
                 <article class="info">
                     <div class="image">
-                        <img src="../img/${vo.imgName }" alt="상품이미지">
+                        <img src="<%=request.getContextPath() %>/img/${vo.imgName }" alt="상품이미지">
                     </div>
                     <div class="summary">
                         <nav>
@@ -521,6 +521,7 @@
                 </article>
                 <article class="detail">
                     <nav><h1>상품정보</h1></nav>
+
                     		${vo.p_detail }
                 </article>
                 
