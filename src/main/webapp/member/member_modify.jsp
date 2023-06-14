@@ -64,8 +64,8 @@ td {
 				 			</td>
 					</table>
 
-					<input type="submit" value="수정"> <input type="button"
-						value="회원페이지로 가기" onclick="location.href='member_mypage.member'">
+					<input type="submit" value="수정"> 
+					<input type="button" value="회원페이지로 가기" onclick="location.href='member_mypage.member'">
 
 
 				</form>

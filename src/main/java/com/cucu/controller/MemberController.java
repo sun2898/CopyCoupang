@@ -94,7 +94,7 @@ public class MemberController extends HttpServlet {
 				session.setAttribute("member_email", vo.getM_email());
 				session.setAttribute("member_adress", vo.getM_adress());
 				
-				response.sendRedirect("member_mypage.member");
+				response.sendRedirect("member_loginresult.jsp");
 			}
 			
 		//마이페이지 화면
@@ -181,11 +181,6 @@ public class MemberController extends HttpServlet {
 		}else if(command.equals("/review/review_list.member")) {
 			
 			request.getRequestDispatcher("review_list.jsp").forward(request, response);
-
 		} 
-		
-		
-		
-		
 	}
 }

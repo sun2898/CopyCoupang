@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import com.cucu.cart.model.CartVO;
 import com.cucu.cart.service.CartService;
 import com.cucu.cart.service.CartServiceImpl;
+import com.cucu.member.model.MemberVO;
+import com.cucu.member.service.MemberService;
+import com.cucu.member.service.MemberServiceImpl;
 import com.cucu.product.model.ProductVO;
 import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
@@ -40,7 +43,6 @@ public class ProductController extends HttpServlet {
 	}
 
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 
 		String uri = request.getRequestURI();
@@ -53,6 +55,7 @@ public class ProductController extends HttpServlet {
 		CartService cservice = new CartServiceImpl();
 		ProductService service = new ProductServiceImpl();
 		ReviewService rservice = new ReviewServiceImplements();
+		MemberService mservice = new MemberServiceImpl();
 		
 		//상품등록화면
 		if(command.equals("/product/product_regist.pd")) {
@@ -94,8 +97,11 @@ public class ProductController extends HttpServlet {
 
 		} else if(command.equals("/product/product_order.pd")) {
 			List<CartVO> list = cservice.getCart(request, response);
-
+			MemberVO vo = mservice.getInfo(request, response);
+			
+			request.setAttribute("vo", vo);
 			request.setAttribute("list", list);
+			
 
 			request.getRequestDispatcher("product_order.jsp").forward(request, response);
 
@@ -121,21 +127,21 @@ public class ProductController extends HttpServlet {
 			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
 			
 		} else if(command.equals("/product/product_order.pd")) {
-			List<CartVO> list = cservice.getCart(request, response);
-			
-			request.setAttribute("list", list);
 			
 			request.getRequestDispatcher("product_order.jsp").forward(request, response);
 			
 		} else if(command.equals("/product/product_complete.pd")) {
 			
+			cservice.clearCart(request, response);
+			
+			response.setContentType("text/html; charset=utf-8;");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('구매해주셔서 감사합니다.');");
+			out.println("alert('주문완료되었습니다. 초기화면으로 돌아갑니다.');");
+			out.println("location.href='../member/home.member';");
 			out.println("</script>");
 			
-			cservice.clearCart(request, response);
-			response.sendRedirect(conPath +"/member/home.member");
+//			response.sendRedirect(conPath +"/member/home.member");
 
 		} else if(command.equals("/product/deleteProduct.pd")) {
 			
@@ -145,11 +151,11 @@ public class ProductController extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8;");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('안녕하세요');");
+			out.println("alert('삭제되었습니다.');");
+			out.println("location.href='member_myselllist.pd';");
 			out.println("</script>");
 			
-			response.sendRedirect("member_myselllist.pd");
-			
+//			response.sendRedirect("member_myselllist.pd");
 			
 		}
 

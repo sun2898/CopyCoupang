@@ -57,8 +57,8 @@
             </div>
             <div class="logo">
                 <div>
-                    <a href="#">
-                        <img src="../img/JJAPANG.jpg" alt="헤더로고" width="300">
+                    <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300px"
+						alt="헤더로고">
                     </a>
                     <form action="#">
                         <input type="text" name="search">
@@ -276,6 +276,7 @@
                      <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
                     </div>
                   </form>
+
                </td>
 
                     </tr>

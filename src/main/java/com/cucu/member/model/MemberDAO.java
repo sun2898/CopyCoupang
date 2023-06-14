@@ -153,13 +153,10 @@ public class MemberDAO {
 	public MemberVO getInfo(String m_id) {
 
 		MemberVO vo = null;
-
 		String sql = "select * from member where m_id = ?";
-
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
 		try {
 
 			conn = DriverManager.getConnection(url, uid, upw);

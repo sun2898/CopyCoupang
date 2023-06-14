@@ -338,6 +338,56 @@
             color: #fe434c;
             font-weight: bold;
         }
+     .container {
+      width: 60%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    select {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    textarea {
+      height: 150px;
+    }
+    
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
     </style>
 </head>
 <body class="nanum">
@@ -427,10 +477,9 @@
                 </ul>
             </aside>
             <section class="view">
-                
                 <article class="info">
                     <div class="image">
-                        <img src="<%=request.getContextPath() %>/img/${vo.imgName }" alt="상품이미지" width="100" border="1">
+                        <img src="<%=request.getContextPath() %>/img/${vo.imgName }" alt="상품이미지">
                     </div>
                     <div class="summary">
                         <nav>
@@ -472,7 +521,7 @@
                 </article>
                 <article class="detail">
                     <nav><h1>상품정보</h1></nav>
-               
+
                     		${vo.p_detail }
                 </article>
                 
@@ -534,7 +583,7 @@
                             </c:forEach>
                         </li>
                     </ul>
-                    <div class="paging">
+                    <!-- <div class="paging">
                         <span class="prev">
                             <a href="#">이전</a>
                         </span>
@@ -550,12 +599,36 @@
                         <span class="next">
                             <a href="#">다음 ></a>
                         </span>
-                    </div>
+                    </div> -->
                 </article>
             </section>
         </main>
 	        </form>
+	        
+	 <form action="../review/review_regiForm.rv">
+	<div class="container">
+    <h2>리뷰 등록</h2>
+      <div class="form-group">
+      <input type="hidden" value="${vo.p_name }" name="p_name">
+       <label for="title">제품명: ${vo.p_name }</label>
+      </div>
+      <div class="form-group">
+        <label for="rating">별점:</label>
+        <select id="rating" name="rating" required>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="content">내용:</label>
+        <textarea id="content" name="content" required></textarea>
+      </div>
+      <button class="submit-btn" type="submit">등록</button>
+  </div>
+  </form>
         <button type="button" id="top">상단이동</button>
-    </div>
 </body>
 </html>

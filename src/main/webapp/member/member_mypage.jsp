@@ -113,7 +113,7 @@
 					<a href="member_deleteForm.member" class="link-style">회원탈퇴</a><br>
 					<br>
 					<c:if test="${sessionScope.member_type != 'B' }">
-					<a href="<%=request.getContextPath() %>/product/member_myselllist.pd" class="link-style"><span class="rainbow">'나의판매목록!'</span></a>
+					<a href="<%=request.getContextPath() %>/product/member_myselllist.pd" class="link-style"><span class="rainbow">나의 판매 목록!</span></a>
 					</c:if>
 				</div>
 			</head>

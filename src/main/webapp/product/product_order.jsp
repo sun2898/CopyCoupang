@@ -399,7 +399,6 @@ th {
 </head>
 <body class="nanum">
 
-
 	<div align="center">
 		<h2>주문하기</h2>
 
@@ -409,11 +408,11 @@ th {
 				<th>가격</th>
 				<th>수량</th>
 			</tr>
-			<c:forEach var="vo" items="${list }">
+			<c:forEach var="li" items="${list }">
 				<tr>
-					<td>${vo.p_name }</td>
-					<td>${vo.price * vo.count}</td>
-					<td>${vo.count }</td>
+					<td>${li.p_name }</td>
+					<td>${li.price * li.count} 원</td>
+					<td>${li.count }</td>
 				</tr>
 			</c:forEach>
 
@@ -432,10 +431,12 @@ th {
 				<th colspan="3">주문자정보</th>
 			</tr>
 			<tr>
+				<th>${vo.m_name }</th>
+				<th>${vo.m_email }</th>
+				<th>${vo.m_adress }</th>
 			</tr>
 		</table>
 
 	</div>
-	
 </body>
 </html>

@@ -40,12 +40,12 @@ public class Reviewcontroller extends HttpServlet {
 		ReviewService service = new ReviewServiceImplements();
 		ProductService pservice = new ProductServiceImpl();
 
-		if(command.equals("/review/review_register.rv")) {
-
+		if(command.equals("/review/review_regiForm.rv")) {
+			System.out.println("리뷰?");
+			service.regiReview(request, response);
 			
 			
-			
-			request.getRequestDispatcher("review_register.jsp").forward(request, response);
+			response.sendRedirect(request.getHeader("Referer"));
 		}
 	}
 
