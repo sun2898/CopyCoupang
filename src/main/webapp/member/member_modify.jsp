@@ -57,15 +57,15 @@ td {
 							<td><input type="text" name="m_adress"
 								value="${vo.m_adress} "></td>
 						<tr />
-							<td>성별</td>
+							<td>회원타입</td>
 				 			<td> 
 				 			<input type="radio" name = "m_type" value = "B" ${vo.m_type == 'B' ? 'checked' : '' }>구매자
 				 			<input type="radio" name = "m_type" value = "S"${vo.m_type == 'S' ? 'checked' : '' }>판매자
 				 			</td>
 					</table>
 
-					<input type="submit" value="수정"> <input type="button"
-						value="회원페이지로 가기" onclick="location.href='member_mypage.member'">
+					<input type="submit" value="수정"> 
+					<input type="button" value="회원페이지로 가기" onclick="location.href='member_mypage.member'">
 
 
 				</form>

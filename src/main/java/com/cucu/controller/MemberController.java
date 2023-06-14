@@ -91,8 +91,10 @@ public class MemberController extends HttpServlet {
 				session.setAttribute("member_name", vo.getM_name());
 				session.setAttribute("member_pw", vo.getM_pw());
 				session.setAttribute("member_type", vo.getM_type());
+				session.setAttribute("member_email", vo.getM_email());
+				session.setAttribute("member_adress", vo.getM_adress());
 				
-				response.sendRedirect("member_mypage.member");
+				response.sendRedirect("member_loginresult.jsp");
 			}
 			
 		//마이페이지 화면
@@ -171,15 +173,15 @@ public class MemberController extends HttpServlet {
 			}
 			
 		//짭팡상품 화면!	
-		}else if(command.equals("/product/product_list2.member")) {
+		}else if(command.equals("/product/product_list.member")) {
 			
-			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
+			request.getRequestDispatcher("product_list.jsp").forward(request, response);
 		
 		//상품리뷰 화면!	
 		}else if(command.equals("/review/review_list.member")) {
 			
 			request.getRequestDispatcher("review_list.jsp").forward(request, response);
-			
+
 		} 
 		
 		

@@ -17,11 +17,12 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String savePath = "/img";
+
+		String savePath = request.getServletContext().getRealPath("img");
+
 		int maxSize = 5 * 1024* 1024;
 		String enType = "UTF-8";
 		
-		System.out.println(savePath);
 		
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, enType, new DefaultFileRenamePolicy());
 			
