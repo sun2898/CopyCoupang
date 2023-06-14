@@ -29,6 +29,7 @@ public class ProductVO {
 
 	}
 
+	//getter/setter
 	public String getP_name() {
 		return p_name;
 	}

@@ -96,6 +96,18 @@ public class ProductDAO {
 
 				
 				list.add(vo);
+				for (ProductVO product : list) {
+				    System.out.println("상품 이름: " + product.getP_name());
+				    System.out.println("가격: " + product.getPrice());
+				    System.out.println("재고: " + product.getStock());
+				    System.out.println("판매자: " + product.getSeller());
+				    System.out.println("상세 정보: " + product.getP_detail());
+				    System.out.println("등록일: " + product.getRegdate());
+				    System.out.println("이미지 이름: " + product.getImgName());
+				    System.out.println("이미지 경로: " + product.getImgPath());
+				    System.out.println("--------------------------------");
+				}
+				list.toString();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
