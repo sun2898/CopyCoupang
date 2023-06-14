@@ -17,6 +17,6 @@ public interface ProductService {
 	List<ProductVO> getList(HttpServletRequest request, HttpServletResponse response);
 	
 	ProductVO getProduct(HttpServletRequest request, HttpServletResponse response);
-
+	
 	public void deleteProduct(HttpServletRequest request, HttpServletResponse response);
 }

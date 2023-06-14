@@ -45,9 +45,10 @@ public class MemberController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		if(command.equals("/home.member")) {
+		if(command.equals("/member/home.member")) {
 			
-			request.getRequestDispatcher("home.jsp");
+			response.sendRedirect("home.jsp");
+//			request.getRequestDispatcher("home.jsp");
 		
 		}else if(command.equals("/product/mainpage.member")) {
 			
@@ -89,6 +90,7 @@ public class MemberController extends HttpServlet {
 				session.setAttribute("member_id", vo.getM_id());
 				session.setAttribute("member_name", vo.getM_name());
 				session.setAttribute("member_pw", vo.getM_pw());
+				session.setAttribute("member_type", vo.getM_type());
 				
 				response.sendRedirect("member_mypage.member");
 			}
@@ -100,7 +102,7 @@ public class MemberController extends HttpServlet {
 		//로그아웃 
 		}else if(command.equals("/member/member_logout.member")) {
 			session.invalidate();
-			request.getRequestDispatcher("member_logout.jsp").forward(request, response);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
 			
 		//회원정보조회 	
 		}else if(command.equals("/member/member_modify.member")) {
@@ -168,8 +170,17 @@ public class MemberController extends HttpServlet {
 				
 			}
 			
+		//짭팡상품 화면!	
+		}else if(command.equals("/product/product_list2.member")) {
 			
-		}
+			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
+		
+		//상품리뷰 화면!	
+		}else if(command.equals("/review/review_list.member")) {
+			
+			request.getRequestDispatcher("review_list.jsp").forward(request, response);
+			
+		} 
 		
 		
 		

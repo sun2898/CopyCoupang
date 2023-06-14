@@ -23,7 +23,6 @@ public class ProductServiceImpl implements ProductService{
 		
 		System.out.println(savePath);
 		
-		
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, enType, new DefaultFileRenamePolicy());
 			
 			String p_name = multi.getParameter("p_name");
@@ -64,6 +63,7 @@ public class ProductServiceImpl implements ProductService{
 		
 		return vo;
 	}
+
 	
 	public void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -72,5 +72,5 @@ public class ProductServiceImpl implements ProductService{
 		dao.deleteProduct(p_name);
 		
 	}
-	
+
 }

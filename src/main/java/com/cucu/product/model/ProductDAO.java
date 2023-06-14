@@ -54,7 +54,7 @@ public class ProductDAO {
 			pstmt.setString(6, imgName);
 			pstmt.setString(7, imgPath);
 			
-			int result = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,9 +68,9 @@ public class ProductDAO {
 	}
 
 	public List<ProductVO> getList(){
-		
-		List<ProductVO> list = new ArrayList<>();
 
+		List<ProductVO> list = new ArrayList<>();
+		
 		String sql = "SELECT * FROM PRODUCT";
 		
 		Connection conn = null;
@@ -146,6 +146,7 @@ public class ProductDAO {
 		}
 		return vo;
 	}
+
 	
 	public void deleteProduct(String p_name) {
 		
@@ -160,7 +161,6 @@ public class ProductDAO {
 			pstmt.setString(1, p_name);
 			
 			pstmt.executeUpdate();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -168,15 +168,9 @@ public class ProductDAO {
 				conn.close();
 				pstmt.close();
 			} catch (Exception e2) {
+				e2.printStackTrace();
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
 	}
+
 }

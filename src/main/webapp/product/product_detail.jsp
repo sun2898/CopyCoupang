@@ -2,10 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8"/>
+=======
+    <meta charset="UTF-8">
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
     <title>CUCUMART</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -31,6 +36,10 @@
             height: auto;
             overflow: hidden;
         }        
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > div {
             float: left;
             width: 50%;
@@ -38,63 +47,117 @@
             padding: 10px;
             box-sizing: border-box;
         }
+<<<<<<< HEAD
         #product > .view > .info > .image > img { width: 100%; }
+=======
+
+        #product > .view > .info > .image > img { width: 100%; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary > nav {
             border-bottom: 1px solid #eaeaea;
             padding-bottom: 10px;
             margin-bottom: 12px;
             overflow: hidden;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary > nav > h1 {
             float: left;
             color: #0231a6;
             font-weight: bold;
             font-size: 1.5em;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary > nav > h2 {
             float: right;
             color: #777;
             margin-top: 8px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary > nav > h3 {
             font-size: 18px;
             font-weight: bold;
             color: #1e2732;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary > nav > p {
             font-size: 14px;
             color: #474747;
             line-height: 36px;
             letter-spacing: -1px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary > nav:nth-child(2) > .rating > a {
             color: #346aff;
             text-decoration: underline;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .org_price > del {
             font-size: 18px;
             color: #aaa;
         }
+<<<<<<< HEAD
         #product > .view > .info > .summary .org_price > del::after { content: "원"; }
+=======
+
+        #product > .view > .info > .summary .org_price > del::after { content: "원"; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .org_price > span {
             color: #eb000a;
             font-size: 16px;
             margin-left: 6px;
         }
+<<<<<<< HEAD
         #product > .view > .info > .summary .org_price > span::after { content: "↓"; }
+=======
+
+        #product > .view > .info > .summary .org_price > span::after { content: "↓"; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .dis_price > ins {
             font-size: 26px;
             font-weight: bold;
             text-decoration: none;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .dis_price > ins::after { content: "원"; }
         #product > .view > .info > .summary .delivery {
             font-size: 16px;
             color: #2e8de5;
         }
+<<<<<<< HEAD
         #product > .view > .info > .summary .origin {
             font-size: 16px;
         }
+=======
+
+        #product > .view > .info > .summary .origin {
+            font-size: 16px;
+        }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .arrival {
             font-size: 14px;
             margin-left: 10px;
@@ -103,6 +166,10 @@
             display: block;
             color: #aaa;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .card > i {
             display: inline-block;
             width: 30px;
@@ -112,14 +179,28 @@
             vertical-align: text-top;
             margin-right: 2px;
         }
+<<<<<<< HEAD
         #product > .view > .info > .summary .cardfree > i { background-position: -126px 0; }
         #product > .view > .info > .summary .cardadd > i { background-position: -51px -21px; }
         #product > .view > .info > .summary .banner { width: 100%; }
+=======
+
+        #product > .view > .info > .summary .cardfree > i { background-position: -126px 0; }
+
+        #product > .view > .info > .summary .cardadd > i { background-position: -51px -21px; }
+
+        #product > .view > .info > .summary .banner { width: 100%; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .count {
             position: relative;
             width: 100px;
             height: 40px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .count > button {
             position: absolute;
             width: 21px;
@@ -129,6 +210,10 @@
             background-color: transparent;
             border: none;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .count > input[name=num] {
             position: absolute;
             left: 30px;
@@ -139,20 +224,37 @@
             font-size: 14px;
             text-align: center;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .count > .decrease {
             left: 0;
             top: 0;
             background-position: 0px -74px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .count > .increase {
             left: 70px;
             top: 0;
             background-position: -48px -74px;
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .total {
             overflow: hidden;
             margin-top: 16px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .total > span {
             float: right;
             display: inline-block;
@@ -163,7 +265,13 @@
             text-align: right;
             letter-spacing: -0.5px;
         }
+<<<<<<< HEAD
         #product > .view > .info > .summary .total > span::after { content: "원";}
+=======
+
+        #product > .view > .info > .summary .total > span::after { content: "원";}
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .total > em {
             float: right;
             display: block;
@@ -175,10 +283,18 @@
             color: #5e636d;
             letter-spacing: -1px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .button {
             overflow: hidden;
             margin-top: 16px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .button > input {
             float: left;
             width: 49%;
@@ -189,61 +305,115 @@
             border-radius: 2px;
             cursor: pointer;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .button > .cart {
             background: #fff;
             border: 1px solid #d9d9d9;
             color: #233594;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .info > .summary .button > .order {
             background: #2e8de5;
             border: 1px solid #217fd7;
             color: #fff;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > .paging > .num > a.on {
             color: #fe434c;
             font-weight: bold;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > article > nav {
             border-bottom: 1px solid #a4a9b0;
             padding: 6px 0;
             margin-bottom: 12px;
             overflow: hidden;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > article > nav > p {
             float: left;
             color: #777;
             margin-top: 6px;
             margin-left: 6px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > article > nav > h1 {
             float: left;
             color: #1e2732;
             font-weight: bold;
             font-size: 1.5em;
         }
+<<<<<<< HEAD
         #product > .view > .notice > table { width: 100%; }
         #product > .view > .notice > table:nth-of-type(2) { border-top: 1px solid #ececec; }
+=======
+
+        #product > .view > .notice > table { width: 100%; }
+
+        #product > .view > .notice > table:nth-of-type(2) { border-top: 1px solid #ececec; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .notice > table tr > td {
              padding: 5px 0 6px 21px;
              font-size: 14px;
              color: #777;
         }
+<<<<<<< HEAD
         #product > .view > .notice > table tr > td:nth-child(1) { width: 20%; color: #222; }
+=======
+
+        #product > .view > .notice > table tr > td:nth-child(1) { width: 20%; color: #222; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > ul {
             padding: 10px;
             box-sizing: border-box;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > ul > li {
             padding-top: 16px;
             border-bottom: 1px solid #ececec;
             box-sizing: border-box;
         }
+<<<<<<< HEAD
         #product > .view > .review > ul > li > div { overflow: hidden; }
+=======
+
+        #product > .view > .review > ul > li > div { overflow: hidden; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > ul > li > div > span {
             float: right;
             color: #555;
         }
+<<<<<<< HEAD
         #product > .view > .review > ul > li > div >  h5 { float: left; }
+=======
+
+        #product > .view > .review > ul > li > div >  h5 { float: left; }
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product h5.rating {
             width: 150px;
             height: 20px;
@@ -253,10 +423,18 @@
             /*  background-position: 36px 0px;*/
             text-indent: 86px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > ul > li > h3 {
             color: #555;
             margin-top: 6px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > ul > li > p {
             width: 100%;
             height: 60px;
@@ -267,11 +445,19 @@
             word-wrap: break-word;
             margin-top: 10px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > .paging {
             width: 100%;
             padding: 30px 0;
             text-align: center;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .notice > .notice {
             margin: 20px 0;
             padding: 21px 26px 20px 19px;
@@ -282,11 +468,19 @@
             border-radius: 2px;
             white-space: normal;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review >.paging > span > a { 
             color: #777;
             font-size: 11px;
             letter-spacing: -1px;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         #product > .view > .review > .paging > .num > a {
             display: inline-block;
             min-width: 14px;
@@ -302,6 +496,7 @@
             color: #fe434c;
             font-weight: bold;
         }
+<<<<<<< HEAD
     </style>
 </head>
 <body class="nanum">
@@ -342,6 +537,12 @@
         </header>
 
 
+=======
+
+    </style>
+</head>
+<body class="nanum">
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         <form action="product_addcart.pd" method="post" class="nanum">	
         <main id="product">
             <aside>
@@ -426,6 +627,7 @@
                         </ol>
                     </li>
                 </ul>
+<<<<<<< HEAD
 
             </aside>
             <section class="view">
@@ -433,6 +635,18 @@
                 <article class="info">
                     <div class="image">
                         <img src="../img/${vo.imgName }" alt="상품이미지">
+=======
+            
+            </aside>
+            <section class="view">
+                <nav>
+                    <h1>상품보기</h1>
+                </nav>
+                
+                <article class="info">
+                    <div class="image">
+                        <img src="	https://via.placeholder.com/460x460" alt="상품이미지">
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                     </div>
                     <div class="summary">
                         <nav>
@@ -461,7 +675,11 @@
                             <span class="origin">원산지-상세설명 참조</span>
                         </nav>
                         <img src="../img/vip_plcc_banner.png" alt="적립!" class="banner">
+<<<<<<< HEAD
                         	수량을 선택하세요 <input type="number" value="1" name="count" height="50">
+=======
+                        	<input type="number" value="1" name="count" height="50">수량을 선택하세요
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                         <div class="total">
                             <span>${vo.price }</span>
                             <em>상품금액</em>
@@ -474,6 +692,7 @@
                 </article>
                 <article class="detail">
                     <nav><h1>상품정보</h1></nav>
+<<<<<<< HEAD
                
                     		${vo.p_detail }
                 </article>
@@ -483,6 +702,12 @@
                <br/>
                <br/>
                
+=======
+                    <img src="https://via.placeholder.com/860x460" alt="상세페이지1">
+                    <img src="https://via.placeholder.com/860x460" alt="상세페이지2">
+                    <img src="https://via.placeholder.com/860x460" alt="상세페이지3">
+                </article>
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                 <article class="notice">
                     <nav>
                         <h1>상품 정보 제공 고시</h1>
@@ -497,10 +722,17 @@
                             <td>부가세 면세여부</td>
                             <td>과세상품</td>
                         </tr>
+<<<<<<< HEAD
 
                     </table>
                     <table>
 
+=======
+                        
+                    </table>
+                    <table>
+                        
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                         <tr>
                             <td>주문후 예상 배송기간</td>
                             <td>상세정보 직접입력</td>
@@ -535,7 +767,11 @@
                             </p>
                             </c:forEach>
                         </li>
+<<<<<<< HEAD
 
+=======
+                        
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                     </ul>
                     <div class="paging">
                         <span class="prev">
@@ -558,7 +794,11 @@
             </section>
         </main>
 	        </form>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
         <button type="button" id="top">상단이동</button>
     </div>
 </body>

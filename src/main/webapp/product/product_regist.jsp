@@ -1,8 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<div align="center" class="div_center">
-	<h3>상품등록 페이지</h3>
+<!DOCTYPE html>
+<html lang="en">
+
+<%@ include file="../include/header.jsp"%>
+<body>
+	<div id="wrapper">
+
+		<section>
+			<head>
+<title>상품등록</title>
+
+<style type="text/css">
+table {
+	margin-left: auto;
+	margin-right: auto;
+	border: 3px solid skyblue;
+}
+
+td {
+	border: 1px solid skyblue
+}
+
+#title {
+	background-color: skyblue
+}
+</style>
+
+		
+	<body>	
+		<section>
+			<div align="center">
+					<br> <br> <b><font size="6" color="gray">상품을 등록하세요!</font></b>
+					<br> <br> <br>
+			</div>		
+		</section>
 	<hr>
 	
 	<form action="registProduct.pd" method="post" enctype="multipart/form-data">
@@ -40,7 +73,13 @@
 			<tr>
 				<td>상품이미지</td>
 				<td>
+<<<<<<< HEAD
 					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);" />
+=======
+
+					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);"/>
+
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
 					<div id="image_container"></div>
 					<script>
 				      function setThumbnail(event) {
@@ -71,4 +110,7 @@
 		</table>
 	</form>
 	
+</div>
+<div align="center">
+	<%@ include file="../include/footer.jsp"%>
 </div>

@@ -18,15 +18,15 @@ public class CartDAO {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static CartDAO getInstance() {
 		return instance;
 	}
-
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String uid = "JSP";
-	private String upw = "JSP";
-
+	
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
+	private String uid = "JSPPN";
+	private String upw = "JSPPN";
+	
 	public List<CartVO> getCart() {
 		List<CartVO> list = new ArrayList<>();
 		String sql = "select * from cart";
@@ -58,8 +58,9 @@ public class CartDAO {
 		return list;
 	}
 	
+
 	// 장바구니에 추가
-		public void addCart(String p_name, String price, String count) {
+	public void addCart(String p_name, String price, String count) {
 			String selectSql = "select * from cart where p_name = ?";
 			String insertSql = "insert into cart values (?, ?, 1)";
 			String updateSql = "update cart set count = count + ? where p_name = ?";
@@ -101,4 +102,25 @@ public class CartDAO {
 		}
 
 
+	public void clearCart() {
+		String sql = "delete from cart";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+	
 }
+

@@ -12,4 +12,8 @@ package com.cucu.cart.service;
 		List<CartVO> getCart(HttpServletRequest request, HttpServletResponse response);
 		
 		void addCart(HttpServletRequest request, HttpServletResponse response);
+		
+		void clearCart(HttpServletRequest request, HttpServletResponse response);
 	}
+
+

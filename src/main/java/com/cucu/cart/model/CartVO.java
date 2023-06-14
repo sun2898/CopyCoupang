@@ -40,7 +40,4 @@ public class CartVO {
 	public void setCount(String count) {
 		this.count = count;
 	}
-
-
-
 }

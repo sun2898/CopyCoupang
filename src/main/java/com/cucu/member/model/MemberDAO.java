@@ -22,7 +22,7 @@ public class MemberDAO {
 		return instance;
 	}
 
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
 	private String uid = "JSPPN";
 	private String upw = "JSPPN";
 
@@ -72,7 +72,7 @@ public class MemberDAO {
 	// 회원가입
 	public void join(MemberVO vo) {
 
-		String sql = "insert into member(m_id, m_pw, m_name, m_email, m_adress) values(?,?,?,?,?)";
+		String sql = "insert into member(m_id, m_pw, m_name, m_email, m_adress, m_type) values(?,?,?,?,?,?)";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -87,6 +87,7 @@ public class MemberDAO {
 			pstmt.setString(3, vo.getM_name());
 			pstmt.setString(4, vo.getM_email());
 			pstmt.setString(5, vo.getM_adress());
+			pstmt.setString(6, vo.getM_type());
 
 			pstmt.executeQuery();
 
@@ -130,8 +131,9 @@ public class MemberDAO {
 				String m_email = rs.getString("m_email");
 				String m_address = rs.getString("m_adress");
 				Timestamp m_regdate = rs.getTimestamp("m_regdate");
+				String m_type = rs.getString("m_type");
 
-				vo = new MemberVO(m_id2, m_pw2, m_name, m_email, m_address, m_regdate);
+				vo = new MemberVO(m_id2, m_pw2, m_name, m_email, m_address, m_regdate, m_type);
 			}
 
 		} catch (Exception e) {
@@ -171,8 +173,9 @@ public class MemberDAO {
 				String m_name = rs.getString("m_name");
 				String m_email = rs.getString("m_email");
 				String m_adress = rs.getString("m_adress");
+				String m_type = rs.getString("m_type");
 
-				vo = new MemberVO(m_id2, null, m_name, m_email, m_adress, null);
+				vo = new MemberVO(m_id2, null, m_name, m_email, m_adress, null, m_type);
 
 			}
 
@@ -193,7 +196,7 @@ public class MemberDAO {
 	public int updateInfo(MemberVO vo) {
 		int result = 0;
 
-		String sql = "update member set m_pw = ?, m_name = ?, m_email = ?, m_adress = ? where m_id = ?";
+		String sql = "update member set m_pw = ?, m_name = ?, m_email = ?, m_adress = ?, m_type = ? where m_id = ?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -207,7 +210,8 @@ public class MemberDAO {
 			pstmt.setString(2, vo.getM_name());
 			pstmt.setString(3, vo.getM_email());
 			pstmt.setString(4, vo.getM_adress());
-			pstmt.setString(5, vo.getM_id());
+			pstmt.setString(5, vo.getM_type());
+			pstmt.setString(6, vo.getM_id());
 
 			result = pstmt.executeUpdate();
 
