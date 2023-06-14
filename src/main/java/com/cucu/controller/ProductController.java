@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cucu.cart.model.CartVO;
+import com.cucu.cart.service.CartService;
+import com.cucu.cart.service.CartServiceImpl;
 import com.cucu.product.model.ProductVO;
 import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
@@ -22,9 +25,7 @@ import com.cucu.review.service.ReviewServiceImplements;
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	public ProductController() {
-
 		super();
 	}
 
@@ -47,7 +48,8 @@ public class ProductController extends HttpServlet {
 		String command = uri.substring( conPath.length() );
 
 		System.out.println(command);
-
+		
+		CartService cservice = new CartServiceImpl();
 		ProductService service = new ProductServiceImpl();
 		ReviewService rservice = new ReviewServiceImplements();
 		
@@ -69,7 +71,6 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
 
-
 		} else if(command.equals("/product/product_detail.pd")) {
 			List<ReviewVO> list = rservice.getReview(request, response);
 			ProductVO vo = service.getProduct(request, response);
@@ -81,7 +82,27 @@ public class ProductController extends HttpServlet {
 
 			response.sendRedirect("mainpage.jsp");
 
-		} 
+		
+			
+		} else if(command.equals("/product/product_cart.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+			
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
+		} else if(command.equals("/product/product_addcart.pd")) {
+			service.addCart(request, response);
+			
+			request.getRequestDispatcher("product_cart.pd").forward(request, response);
+			
+		} else if(command.equals("/product/product_order.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+			
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("product_order.jsp").forward(request, response);
+			
+		}
 
 	}
 }

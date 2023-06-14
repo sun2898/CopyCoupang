@@ -21,11 +21,6 @@
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="./css/product.css">
-<!--
-        날짜 : 2022/12/06
-        이름 : 박종협
-        내용 : Kmarket main layout
-    -->
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap')
@@ -395,25 +390,29 @@
 	font-weight: bold;
 }
 
-table {
+/* table {
 	border-collapse: collapse;
 	width: 80%;
 	background-color: white;
-}
+} */
 
 th, td {
 	padding: 8px;
-	text-align: left;
+	text-align: center;
 	border-bottom: 1px solid #ddd;
 }
 
 th {
 	background-color: #f2f2f2;
 }
-
-.order-option {
-            margin-top: 10px;
+.payment-option {
+            margin-left: 10px;
         }
+.table1 {
+	border-collapse: collapse;
+	width: 80%;
+	background-color: white;
+}
 </style>
 </head>
 <body class="nanum">
@@ -421,9 +420,9 @@ th {
 		<header>
 			<div class="top">
 				<div>
-					<a href="">로그인</a> 
-					<a href="">회원가입</a> 
-					<a href="">마이페이지</a> 
+					<a href="">로그인</a>
+					<a href="">회원가입</a>
+					<a href="">마이페이지</a>
 					<a href="product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>장바구니</a>
 				</div>
 			</div>
@@ -452,29 +451,66 @@ th {
 				</div>
 			</div>
 		</header>
-
-		<div align="center">
-			<h3>장바구니</h3>
-
-			<table>
-
-				<tr>
-					<th>상품명</th>
-					<th>가격</th>
-					<th>수량</th>
-				</tr>
-				<c:forEach var="vo" items="${list }">
-					<tr>
-						<td>${vo.p_name }</td>
-						<td>${vo.price * vo.count}</td>
-						<td>${vo.count }</td>
-					</tr>
-				</c:forEach>
-			</table>
-
-	<input class="order-option" type="button" value="주문하기" onclick="location.href='product_order.pd'">
-
-		</div>
 	</div>
+<body>
+
+	<div align="center">
+		<h2>주문하기</h2>
+
+		<table class="table1">
+			<tr>
+				<th>상품명</th>
+				<th>가격</th>
+				<th>수량</th>
+			</tr>
+			<c:forEach var="vo" items="${list }">
+				<tr>
+					<td>${vo.p_name }</td>
+					<td>${vo.price * vo.count}</td>
+					<td>${vo.count }</td>
+				</tr>
+			</c:forEach>
+			
+			<tr>
+				<th><input type="radio" name="payment">카드
+								<input class="payment-option" type="radio" name="payment">계좌
+								<input class="payment-option" type="radio" name="payment">무통장
+				</th>
+				<th></th>
+				<th><input type="button" value="결제하기" onclick="location.href='product_cart.pd' "></th>
+			</tr>
+			
+		</table>
+		
+		<table>
+			<tr>
+				<th colspan="3">주문자정보</th>
+			</tr>
+			
+			<tr>
+				
+			</tr>
+		
+		
+		
+		</table>
+	
+	
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
