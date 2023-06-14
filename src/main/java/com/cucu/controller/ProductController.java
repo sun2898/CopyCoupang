@@ -1,6 +1,7 @@
 package com.cucu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -65,11 +66,11 @@ public class ProductController extends HttpServlet {
 			response.sendRedirect("product_list2.pd");
 			
 		//리스트출력
-		} else if(command.equals("/product/product_list2.pd")) {
+		} else if(command.equals("/product/product_list.pd")) {
       
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
+			request.getRequestDispatcher("product_list.jsp").forward(request, response);
 
 		} else if(command.equals("/product/product_detail.pd")) {
 			List<ReviewVO> list = rservice.getReview(request, response);
@@ -90,10 +91,12 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 			
 			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
+			
 		} else if(command.equals("/product/product_addcart.pd")) {
 			service.addCart(request, response);
-			
-			request.getRequestDispatcher("product_cart.pd").forward(request, response);
+			List<CartVO> list = cservice.getCart(request, response);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
 			
 		} else if(command.equals("/product/product_order.pd")) {
 			List<CartVO> list = cservice.getCart(request, response);
@@ -102,6 +105,15 @@ public class ProductController extends HttpServlet {
 			
 			request.getRequestDispatcher("product_order.jsp").forward(request, response);
 			
+		} else if(command.equals("/product/product_complete.pd")) {
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('구매해주셔서 감사합니다.');");
+			out.println("</script>");
+			
+			cservice.clearCart(request, response);
+			response.sendRedirect(conPath +"/member/home.member");
 		}
 
 	}

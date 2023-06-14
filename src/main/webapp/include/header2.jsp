@@ -407,7 +407,7 @@
 						<li><a href="#">최신상품</a></li>
 						<li><a href="#">인기상품</a></li>
 						<li><a href="#">할인상품</a></li>
-						<li><a href="<%=request.getContextPath() %>/product/product_list2.pd" style="color:black" class="rainbow" >짭팡상품!</a></li>
+						<li><a href="<%=request.getContextPath() %>/product/product_list.pd" style="color:black" class="rainbow" >짭팡상품!</a></li>
 						
 					</ul>
 					<ul>

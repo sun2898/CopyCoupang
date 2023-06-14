@@ -10,5 +10,7 @@ import com.cucu.cart.model.CartVO;
 public interface CartService {
 	
 	List<CartVO> getCart(HttpServletRequest request, HttpServletResponse response);
+	
+	void clearCart(HttpServletRequest request, HttpServletResponse response);
 
 }

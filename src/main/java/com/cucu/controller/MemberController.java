@@ -45,9 +45,10 @@ public class MemberController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		if(command.equals("/home.member")) {
+		if(command.equals("/member/home.member")) {
 			
-			request.getRequestDispatcher("home.jsp");
+			response.sendRedirect("home.jsp");
+//			request.getRequestDispatcher("home.jsp");
 		
 		}else if(command.equals("/product/mainpage.member")) {
 			
@@ -178,7 +179,8 @@ public class MemberController extends HttpServlet {
 		}else if(command.equals("/review/review_list.member")) {
 			
 			request.getRequestDispatcher("review_list.jsp").forward(request, response);
-		}
+			
+		} 
 		
 		
 		
