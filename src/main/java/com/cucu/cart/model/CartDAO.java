@@ -1,18 +1,17 @@
-package com.cucu.review.model;
+package com.cucu.cart.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReviewDAO {
+public class CartDAO {
+
+	private static CartDAO instance = new CartDAO();
 	
-	private static ReviewDAO instance = new ReviewDAO();
-	
-	private ReviewDAO() {
+	private CartDAO() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
@@ -20,7 +19,7 @@ public class ReviewDAO {
 		}
 	}
 	
-	public static ReviewDAO getInstance() {
+	public static CartDAO getInstance() {
 		return instance;
 	}
 	
@@ -28,24 +27,21 @@ public class ReviewDAO {
 	private String uid = "JSP";
 	private String upw = "JSP";
 	
-	public List<ReviewVO> getReivew(String p_name){
-		List<ReviewVO> list = new ArrayList<>();
-		String sql = "select * from review where p_name = ?";
+	public List<CartVO> getCart() {
+		List<CartVO> list = new ArrayList<>();
+		String sql = "select * from cart";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			conn = DriverManager.getConnection(url, uid, upw);
+			conn = DriverManager.getConnection(url,uid,upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p_name);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				String review = rs.getString("REVIEW");
-				String id = rs.getString("ID");
-				String name = rs.getString("P_NAME");
-				Timestamp regdate = rs.getTimestamp("REGDATE");
-				int star = rs.getInt("STAR");
-				ReviewVO vo = new ReviewVO(review, id, name, regdate, star);
+				String p_name = rs.getString("P_NAME");
+				String price = rs.getString("PRICE");
+				String count = rs.getString("COUNT");
+				CartVO vo = new CartVO(p_name, price, count);
 				list.add(vo);
 			}
 		} catch (Exception e) {
@@ -58,9 +54,10 @@ public class ReviewDAO {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-			
 		}
 		return list;
 	}
-
+	
+	
+	
 }

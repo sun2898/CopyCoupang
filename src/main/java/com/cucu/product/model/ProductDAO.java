@@ -26,9 +26,9 @@ public class ProductDAO {
 	}
 
 	//데이터베이스 연결주소 + 오라클 커넥터
-	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
-	private String uid = "JSPPN";
-	private String upw = "JSPPN";
+	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String uid = "JSP";
+	private String upw = "JSP";
 	
 	/**
 	 * 
@@ -46,9 +46,8 @@ public class ProductDAO {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_name);
-
-			pstmt.setInt(2, price);
-			pstmt.setInt(3, stock);
+			pstmt.setString(2, price);
+			pstmt.setString(3, stock);
 			pstmt.setString(4, seller);
 			pstmt.setString(5, p_detail);
 			
@@ -69,7 +68,7 @@ public class ProductDAO {
 	public List<ProductVO> getList(){
 		
 
-		List<ProductVO> list = new ArrayList();
+		List<ProductVO> list = new ArrayList<>();
 		
 		String sql = "SELECT * FROM PRODUCT";
 		
@@ -125,8 +124,7 @@ public class ProductDAO {
 				String seller = rs.getString("SELLER");
 				String p_detail = rs.getString("P_DETAIL");
 				Timestamp regdate = rs.getTimestamp("REGDATE");
-				String path = rs.getString("FILE_PATH");
-				vo = new ProductVO(name, price, stock, seller, p_detail, regdate, path);
+				vo = new ProductVO(name, price, stock, seller, p_detail, regdate);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,4 +140,71 @@ public class ProductDAO {
 		return vo;
 	}
 
+	// 장바구니에 추가
+	public void addCart(String p_name, String price, String count) {
+		String selectSql = "select * from cart where p_name = ?";
+		String insertSql = "insert into cart values (?, ?, 1)";
+		String updateSql = "update cart set count = count + ? where p_name = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(selectSql);
+			pstmt.setString(1, p_name);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				pstmt.close();
+				pstmt = conn.prepareStatement(updateSql);
+				pstmt.setString(1, count);
+				pstmt.setString(2, p_name);
+				pstmt.executeUpdate();
+				System.out.println("업데이트");
+			} else {
+				pstmt.close();
+				pstmt = conn.prepareStatement(insertSql);
+				pstmt.setString(1, p_name);
+				pstmt.setString(2, price);
+				pstmt.executeUpdate();
+				System.out.println("인서트");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
