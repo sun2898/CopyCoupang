@@ -26,9 +26,9 @@ public class ProductDAO {
 	}
 
 	//데이터베이스 연결주소 + 오라클 커넥터
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String uid = "JSP";
-	private String upw = "JSP";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
+	private String uid = "JSPPN";
+	private String upw = "JSPPN";
 	
 	/**
 	 * 

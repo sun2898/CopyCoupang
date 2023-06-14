@@ -24,9 +24,9 @@ public class ReviewDAO {
 		return instance;
 	}
 	
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String uid = "JSP";
-	private String upw = "JSP";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
+	private String uid = "JSPPN";
+	private String upw = "JSPPN";
 	
 	public List<ReviewVO> getReivew(String p_name){
 		List<ReviewVO> list = new ArrayList<>();
