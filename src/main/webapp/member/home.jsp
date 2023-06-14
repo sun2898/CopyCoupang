@@ -67,7 +67,6 @@ td {
 	<form action="" >
 		<div align="center">
 					<br> <br> <b><font size="70" color="gray">안녕하세요 짭팡입니다!</font></b><br> <br> <br>
-					
 					<c:choose>
 					<c:when test="${sessionScope.member_id == null }">
 					<h3 style="font-size: 16px;" style="color:grey" >로그인 후 모든 홈페이지의 서비스를 받아보실 수 있습니다:-)</h3>
@@ -87,9 +86,6 @@ td {
 					<a href="<%=request.getContextPath()%>/product/product_cart.pd" class="link-style">장바구니 가기</a>
 					</c:otherwise>
 					</c:choose>
-					
-					
-					 				
 		</div>
 		</form>
 

@@ -58,7 +58,6 @@
                     </c:otherwise>
                     </c:choose>
             </div>
-
             </div>
             <div class="logo">
                 <div>

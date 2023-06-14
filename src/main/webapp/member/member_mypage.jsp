@@ -114,7 +114,6 @@
 					<br>
 					<c:if test="${sessionScope.member_type != 'B' }">
 					<a href="<%=request.getContextPath() %>/product/member_myselllist.pd" class="link-style"><span class="rainbow">나의 판매 목록!</span></a>
-					<a href="<%=request.getContextPath() %>/review/review_list.member" class="link-style"><span class="rainbow">나의 사용 후기!</span></a>
 					</c:if>
 				</div>
 			</head>
