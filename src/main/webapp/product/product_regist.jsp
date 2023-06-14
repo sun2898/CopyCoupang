@@ -32,7 +32,7 @@ td {
 	<body>	
 		<section>
 			<div align="center">
-					<br> <br> <b><font size="6" color="gray">상품을 등록하세요!</font></b>
+					<br> <br> <b><font size="6" color="gray">판매자님! 상품을 등록하세요!</font></b>
 					<br> <br> <br>
 			</div>		
 		</section>
@@ -49,7 +49,7 @@ td {
 			<tr>
 				<td>판매자</td>
 				<td>
-					<input type="text" name="seller" required="required" size="10" style="width: 50%;">
+					<input type="text" name="seller" value="${sessionScope.member_id }" readonly="readonly" required="required" size="10" style="width: 50%;">
 				</td>
 			</tr>
 			<tr>
@@ -73,13 +73,7 @@ td {
 			<tr>
 				<td>상품이미지</td>
 				<td>
-<<<<<<< HEAD
 					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);" />
-=======
-
-					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);"/>
-
->>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
 					<div id="image_container"></div>
 					<script>
 				      function setThumbnail(event) {
