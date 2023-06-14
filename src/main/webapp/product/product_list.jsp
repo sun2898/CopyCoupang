@@ -57,7 +57,7 @@
             </div>
             <div class="logo">
                 <div>
-                    <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300px"
+                    <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300"
 						alt="헤더로고">
 					</a>
 
@@ -226,7 +226,8 @@
                 	<c:forEach var="vo" items="${list }" varStatus="x">
                     <tr>
                         <td><a href="product_detail.pd?p_name=${vo.p_name }" class="thumb">
-                            <img src="../img/${vo.imgName }" alt="상품이미지"/>
+                            <img src="<%=request.getContextPath() %>/img/${vo.imgName}" width="50" alt="상품이미지"/>
+                            
                         </a></td>
                         <td>  
                            <a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name }</a>

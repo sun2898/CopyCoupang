@@ -36,7 +36,7 @@
         #product > .view > .info > div {
             float: left;
             width: 50%;
-            height: 100%;
+            height: 80%;
             padding: 10px;
             box-sizing: border-box;
         }
@@ -427,13 +427,10 @@
                 </ul>
             </aside>
             <section class="view">
-                <nav>
-                    <h1>상품보기</h1>
-                </nav>
                 
                 <article class="info">
                     <div class="image">
-                        <img src="	https://via.placeholder.com/460x460" alt="상품이미지">
+                        <img src="../img/${vo.imgName }" alt="상품이미지" width="100" border="1">
                     </div>
                     <div class="summary">
                         <nav>
@@ -475,7 +472,6 @@
                 </article>
                 <article class="detail">
                     <nav><h1>상품정보</h1></nav>
-<<<<<<< HEAD
                
                     		${vo.p_detail }
                 </article>

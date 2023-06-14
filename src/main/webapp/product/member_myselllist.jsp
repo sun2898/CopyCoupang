@@ -208,8 +208,8 @@
                         <a href="#">최근등록순</a>
                     </li>
                 </ul> -->
-                <table>
-
+                
+                <table>	
                 	<tr>
                 		<td>
                 			상품사진
@@ -221,7 +221,10 @@
                 			가격
                 		</td>
                 		<td>
-                			판매자
+                			등록일
+                		</td>
+                		<td>
+                			삭제
                 		</td>
                 	</tr>
                 	
@@ -231,10 +234,12 @@
                     <tr>
                     	
                         <td><a href="product_content.pd?p_name=${vo.p_name }" class="thumb">
-                            <img src="../img/${vo.imgName }" alt="상품이미지"/>
+                            <img src="<%=request.getContextPath() %>/img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
+                        
                         <td>  
-                           <a href="product_content.pd?p_name=${vo.p_name }">${vo.p_name }</a>
+                           <a href="product_content.pd?p_name=${vo.p_name }" class="name">${vo.p_name }</a>
+                           
                         </td>
                         <td>
                             <ul>
@@ -248,27 +253,35 @@
                             </ul>
                         </td>
                         <td>
-                            <h4 class="seller"><i class="fas fa-home" aria-hidden="true"></i>${vo.seller }</h4>
+                            <h4 class="regdate"><fmt:formatDate value="${vo.regdate }" pattern="yyyy/MM/dd"/></h4>
+                        </td>
+                        
+                        <td>
+                        <form action="deleteProduct.pd" method="post">
+                        <input type="hidden" name="p_name" value="${vo.p_name }"/>
+                        <input type="submit" value="상품삭제" >
+                        </form>
                         </td>
                         
                     </tr>
+                    
                     </c:when>
                    </c:choose>
                     </c:forEach>
+                  
                     <tr>
-                       <td colspan="6" align="right">
-                  <form action="" class="form-inline" >
+                       <td colspan="6" align="center">
+                  <form action="" >
                     <div class="form-group">
                      <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
                     </div>
-                    <div class="form-group">
-                     <input type="button" value="상품삭제" onclick="location.href='product_regist.pd'">
-                    </div>
-                  </form> 
+                  </form>
                </td>
 
                     </tr>
+                    
                 </table>
+                 
                 <div class="paging">
                     <span class="prev">
                         <a href="#">< 이전</a>
