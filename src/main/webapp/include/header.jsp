@@ -377,7 +377,7 @@
                    	<c:when test="${sessionScope.member_id != null }">
                         <a href="<%=request.getContextPath() %>/member/member_mypage.member" style="color:blue">마이페이지</a>
                         <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
-                        <a href="<%=request.getContextPath() %>/product/product_addcart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
+                        <a href="<%=request.getContextPath() %>/product/product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                     </c:when>
                     <c:otherwise>
                         <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">로그인</a>
@@ -411,7 +411,6 @@
 					</ul>
 					<ul>
 						<li><a href="#">쿠폰존</a></li>
-						<li><a href="<%=request.getContextPath() %>/review/review_list.member" style="color:black" class="rainbow">사용후기!</a></li>
 						<li><a href="#">개인결제</a></li>
 						<li><a href="#">고객센터</a></li>
 						<li><a href="#">FAQ</a></li>

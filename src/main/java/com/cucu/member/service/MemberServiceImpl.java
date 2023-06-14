@@ -56,7 +56,6 @@ public class MemberServiceImpl implements MemberService{
 		
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO vo = dao.getInfo(m_id);
-		
 		return vo;
 	}
 

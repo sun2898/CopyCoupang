@@ -63,8 +63,8 @@ public class CartDAO {
 	// 장바구니에 추가
 	public void addCart(String p_name, String price, String count) {
 			String selectSql = "select * from cart where p_name = ?";
-			String insertSql = "insert into cart values (?, ?, 1)";
 			String updateSql = "update cart set count = count + ? where p_name = ?";
+			String insertSql = "insert into cart values (?, ?, ?)";
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -85,6 +85,7 @@ public class CartDAO {
 					pstmt = conn.prepareStatement(insertSql);
 					pstmt.setString(1, p_name);
 					pstmt.setString(2, price);
+					pstmt.setString(3, count);
 					pstmt.executeUpdate();
 					System.out.println("인서트");
 				}

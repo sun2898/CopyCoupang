@@ -43,7 +43,7 @@ public class ReviewDAO {
 			while(rs.next()) {
 
 				String review = rs.getString("REVIEW");
-				String id = rs.getString("ID");
+				String id = rs.getString("M_ID");
 				String name = rs.getString("P_NAME");
 				Timestamp regdate = rs.getTimestamp("REGDATE");
 				int star = rs.getInt("STAR");
@@ -65,4 +65,48 @@ public class ReviewDAO {
 		return list;
 	}
 
+	public void regiReview(String review, String m_id, String p_name, String star) {
+		
+		String sql = "insert into review values(?,?,?, sysdate, ?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		System.out.println("리뷰입장");
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, review);
+			pstmt.setString(2, m_id);
+			pstmt.setString(3, p_name);
+			pstmt.setString(4, star);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
