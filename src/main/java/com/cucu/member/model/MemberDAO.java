@@ -30,7 +30,6 @@ public class MemberDAO {
 	public int idCheck(String m_id) {
 
 		int result = 1;
-
 		String sql = "select * from member where m_id = ?";
 
 		Connection conn = null;

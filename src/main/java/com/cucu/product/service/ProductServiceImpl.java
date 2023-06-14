@@ -23,7 +23,6 @@ public class ProductServiceImpl implements ProductService{
 		int maxSize = 5 * 1024* 1024;
 		String enType = "UTF-8";
 		
-		
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, enType, new DefaultFileRenamePolicy());
 			
 			String p_name = multi.getParameter("p_name");
