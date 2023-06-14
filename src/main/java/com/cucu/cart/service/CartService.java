@@ -1,16 +1,19 @@
 package com.cucu.cart.service;
 
-import java.util.List;
+	import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+	import javax.servlet.http.HttpServletRequest;
+	import javax.servlet.http.HttpServletResponse;
 
-import com.cucu.cart.model.CartVO;
+	import com.cucu.cart.model.CartVO;
 
-public interface CartService {
-	
-	List<CartVO> getCart(HttpServletRequest request, HttpServletResponse response);
-	
-	void clearCart(HttpServletRequest request, HttpServletResponse response);
+	public interface CartService {
 
-}
+		List<CartVO> getCart(HttpServletRequest request, HttpServletResponse response);
+		
+		void addCart(HttpServletRequest request, HttpServletResponse response);
+		
+		void clearCart(HttpServletRequest request, HttpServletResponse response);
+	}
+
+

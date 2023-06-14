@@ -63,7 +63,7 @@ public class ProductController extends HttpServlet {
 		}else if(command.equals("/product/registProduct.pd")) {
 
 			service.insertProduct(request, response);
-			response.sendRedirect("product_list2.pd");
+			response.sendRedirect("product_list.pd");
 			
 		//리스트출력
 		} else if(command.equals("/product/product_list.pd")) {
@@ -82,8 +82,23 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/product/mainpage.pd")) {
 
 			response.sendRedirect("mainpage.jsp");
+			
+		}  else if(command.equals("/product/product_cart.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+			request.setAttribute("list", list);
 
-		
+			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
+		} else if(command.equals("/product/product_addcart.pd")) {
+			cservice.addCart(request, response);
+
+			request.getRequestDispatcher("product_cart.pd").forward(request, response);
+
+		} else if(command.equals("/product/product_order.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+
+			request.setAttribute("list", list);
+
+			request.getRequestDispatcher("product_order.jsp").forward(request, response);
 			
 		} else if(command.equals("/product/product_cart.pd")) {
 			List<CartVO> list = cservice.getCart(request, response);
@@ -93,7 +108,7 @@ public class ProductController extends HttpServlet {
 			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
 			
 		} else if(command.equals("/product/product_addcart.pd")) {
-			service.addCart(request, response);
+			cservice.addCart(request, response);
 			List<CartVO> list = cservice.getCart(request, response);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_cart.jsp").forward(request, response);

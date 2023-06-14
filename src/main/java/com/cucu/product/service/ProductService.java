@@ -18,7 +18,5 @@ public interface ProductService {
 	
 	ProductVO getProduct(HttpServletRequest request, HttpServletResponse response);
 	
-	void addCart(HttpServletRequest request, HttpServletResponse response);
-
-
+	public void deleteProduct(HttpServletRequest request, HttpServletResponse response);
 }

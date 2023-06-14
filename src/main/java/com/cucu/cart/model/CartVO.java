@@ -1,11 +1,11 @@
 package com.cucu.cart.model;
 
 public class CartVO {
-	
+
 	private String p_name;
 	private String price;
 	private String count;
-	
+
 	public CartVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -40,7 +40,4 @@ public class CartVO {
 	public void setCount(String count) {
 		this.count = count;
 	}
-	
-	
-
 }

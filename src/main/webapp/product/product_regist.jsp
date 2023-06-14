@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="../include/header2.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <body>
 	<div id="wrapper">
 
@@ -73,9 +73,13 @@ td {
 			<tr>
 				<td>상품이미지</td>
 				<td>
+<<<<<<< HEAD
+					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);" />
+=======
 
 					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);"/>
 
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
 					<div id="image_container"></div>
 					<script>
 				      function setThumbnail(event) {

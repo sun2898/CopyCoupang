@@ -68,7 +68,6 @@ public class ProductDAO {
 	}
 
 	public List<ProductVO> getList(){
-		
 
 		List<ProductVO> list = new ArrayList<>();
 		
@@ -148,73 +147,30 @@ public class ProductDAO {
 		return vo;
 	}
 
-	// 장바구니에 추가
-	public void addCart(String p_name, String price, String count) {
-		String selectSql = "select * from cart where p_name = ?";
-		String updateSql = "update cart set count = count + ? where p_name = ?";
-		String insertSql = "insert into cart values (?, ?, ?)";
+	
+	public void deleteProduct(String p_name) {
+		
+		String sql = "DELETE FROM PRODUCT WHERE P_NAME = ?";
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
 		try {
-			conn = DriverManager.getConnection(url,uid,upw);
-			pstmt = conn.prepareStatement(selectSql);
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_name);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				pstmt.close();
-				pstmt = conn.prepareStatement(updateSql);
-				pstmt.setString(1, count);
-				pstmt.setString(2, p_name);
-				pstmt.executeUpdate();
-				System.out.println("업데이트");
-			} else {
-				pstmt.close();
-				pstmt = conn.prepareStatement(insertSql);
-				pstmt.setString(1, p_name);
-				pstmt.setString(2, price);
-				pstmt.setString(3, count);
-				
-				pstmt.executeUpdate();
-				System.out.println("인서트");
-			}
+			
+			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				conn.close();
 				pstmt.close();
-				rs.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/product.css">
 </head>
+<<<<<<< HEAD
+=======
 <style>
 		.rainbow {
 		  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
@@ -36,10 +38,27 @@
 		  }
 		}
 </style>
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
 <body>
     <div id="wrapper">
         <header>
             <div class="top">
+<<<<<<< HEAD
+                <div>
+                    <a href="">로그인</a>
+                    <a href="">회원가입</a>
+                    <a href="">마이페이지</a>
+                    <a href="">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        장바구니
+                    </a>
+                </div>
+            </div>
+            <div class="logo">
+                <div>
+                    <a href="#">
+                        <img src="../img/JJAPANG.jpg" alt="헤더로고" width="200%">
+=======
                <div>
 					<c:choose>
                    	<c:when test="${sessionScope.member_id != null }">
@@ -59,6 +78,7 @@
                 <div>
                     <a href="product_list.pd">
                         <img src="../img/JJAPANG.jpg" alt="헤더로고" width="300">
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                     </a>
                     <form action="#">
                         <input type="text" name="search">
@@ -75,6 +95,14 @@
                         <li><a href="#">추천상품</a></li>
                         <li><a href="#">최신상품</a></li>
                         <li><a href="#">인기상품</a></li>
+<<<<<<< HEAD
+                        <li><a href="#">할인상품</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">쿠폰존</a></li>
+                        <li><a href="#">사용후기</a></li>
+                        <li><a href="#">개인결제</a></li>
+=======
 
                         <li><a href="<%=request.getContextPath() %>/product/product_list.pd" style="color:black" class="rainbow">짭팡상품!</a></li>
 					</ul>
@@ -83,6 +111,7 @@
 						<li><a href="<%=request.getContextPath() %>/review/review_list.member" style="color:black" class="rainbow">사용후기!</a></li>
 						<li><a href="#">개인결제</a></li>
 
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                         <li><a href="#">고객센터</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
@@ -209,7 +238,10 @@
                     </li>
                 </ul> -->
                 <table>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                 	<tr>
                 		<td>
                 			상품사진
@@ -231,6 +263,10 @@
                             <img src="../img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
                         <td>  
+<<<<<<< HEAD
+                        	                       
+=======
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                            <a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name }</a>
                         </td>
                         <td>
@@ -251,6 +287,15 @@
                     </tr>
                     </c:forEach>
                     <tr>
+<<<<<<< HEAD
+                    	<td colspan="6" align="right">
+						<form action="" class="form-inline" >
+						  <div class="form-group">
+							<input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
+						  </div>
+						</form> 
+					</td>
+=======
                        <td colspan="6" align="right">
                   <form action="" class="form-inline" >
                     <div class="form-group">
@@ -259,6 +304,7 @@
                   </form> 
                </td>
 
+>>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
                     </tr>
                 </table>
                 <div class="paging">

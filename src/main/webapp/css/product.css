@@ -195,6 +195,12 @@
     text-decoration: none;
 }
 
+img {
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+}
+
 /* 상품상세 */
 #product > .view > article {
     width: 100%;
