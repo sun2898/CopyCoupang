@@ -57,10 +57,9 @@
             </div>
             <div class="logo">
                 <div>
-                    <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300px"
-						alt="헤더로고">
-					</a>
-
+                    <a href="#">
+                        <img src="../img/JJAPANG.jpg" alt="헤더로고" width="300">
+                    </a>
                     <form action="#">
                         <input type="text" name="search">
                         <button>
@@ -83,6 +82,7 @@
 						<li><a href="#">쿠폰존</a></li>
 						<li><a href="<%=request.getContextPath() %>/review/review_list.member" style="color:black" class="rainbow">사용후기!</a></li>
 						<li><a href="#">개인결제</a></li>
+
                         <li><a href="#">고객센터</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
@@ -209,6 +209,7 @@
                     </li>
                 </ul> -->
                 <table>
+
                 	<tr>
                 		<td>
                 			상품사진
@@ -220,16 +221,20 @@
                 			가격
                 		</td>
                 		<td>
-                			판매자${sessionScope.member_type }
+                			판매자
                 		</td>
                 	</tr>
+                	
                 	<c:forEach var="vo" items="${list }" varStatus="x">
+                	 <c:choose>
+                	<c:when test="${sessionScope.member_id == vo.seller}">
                     <tr>
-                        <td><a href="product_detail.pd?p_name=${vo.p_name }" class="thumb">
+                    	
+                        <td><a href="product_content.pd?p_name=${vo.p_name }" class="thumb">
                             <img src="../img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
                         <td>  
-                           <a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name }</a>
+                           <a href="product_content.pd?p_name=${vo.p_name }">${vo.p_name }</a>
                         </td>
                         <td>
                             <ul>
@@ -247,16 +252,22 @@
                         </td>
                         
                     </tr>
+                    </c:when>
+                   </c:choose>
                     </c:forEach>
+                    <tr>
                        <td colspan="6" align="right">
-	                   <form action="" class="form-inline" >
-	                    <div class="form-group">
-                  		<c:if test="${sessionScope.member_type != 'B' }">
-	                     <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
-                 		</c:if>
-	                    </div>
-	                  </form>
-               		</td>
+                  <form action="" class="form-inline" >
+                    <div class="form-group">
+                     <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
+                    </div>
+                    <div class="form-group">
+                     <input type="button" value="상품삭제" onclick="location.href='product_regist.pd'">
+                    </div>
+                  </form> 
+               </td>
+
+                    </tr>
                 </table>
                 <div class="paging">
                     <span class="prev">

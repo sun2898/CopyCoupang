@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="../include/header2.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -416,6 +415,7 @@ th {
             margin-top: 10px;
         }
 </style>
+
 </head>
 <body class="nanum">
 
@@ -443,4 +443,8 @@ th {
 
 		</div>
 </body>
+<div align="center">
+	<%@ include file="../include/footer.jsp"%>
+</div>
 </html>
+

@@ -59,7 +59,6 @@ td {
 	 				<input type="radio" name = "m_type" value = "S">판매자
  					</td>
 					
-					
 				</table>
 
 				<div style="color: orange;">${msg }</div>
