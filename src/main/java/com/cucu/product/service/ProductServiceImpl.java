@@ -19,12 +19,10 @@ public class ProductServiceImpl implements ProductService{
 		request.setCharacterEncoding("UTF-8");
 
 		String savePath = request.getServletContext().getRealPath("img");
-		
 
 		int maxSize = 5 * 1024* 1024;
 		String enType = "UTF-8";
 		
-		System.out.println(savePath);
 		
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, enType, new DefaultFileRenamePolicy());
 			

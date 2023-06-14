@@ -16,4 +16,3 @@ package com.cucu.cart.service;
 		void clearCart(HttpServletRequest request, HttpServletResponse response);
 	}
 
-
