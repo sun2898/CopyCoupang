@@ -253,9 +253,5 @@
         <button type="button" id="top">상단이동</button>
     </div>
 </body>
-<<<<<<< HEAD
-</html>
-=======
 </html>
 <%@ include file = "../include/footer.jsp"%>
->>>>>>> parkdong222

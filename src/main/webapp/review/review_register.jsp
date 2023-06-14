@@ -30,6 +30,7 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap')
 	;
+<<<<<<< HEAD
 
 .nanum {
 	font-family: 'Nanum Gothic Coding', monospace;

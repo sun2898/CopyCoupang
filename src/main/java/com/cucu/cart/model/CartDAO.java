@@ -59,6 +59,7 @@ public class CartDAO {
 	}
 	
 
+
 	// 장바구니에 추가
 	public void addCart(String p_name, String price, String count) {
 			String selectSql = "select * from cart where p_name = ?";
@@ -100,7 +101,6 @@ public class CartDAO {
 			}
 
 		}
-
 
 	public void clearCart() {
 		String sql = "delete from cart";

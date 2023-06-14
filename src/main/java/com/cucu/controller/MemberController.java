@@ -181,7 +181,6 @@ public class MemberController extends HttpServlet {
 		}else if(command.equals("/review/review_list.member")) {
 			
 			request.getRequestDispatcher("review_list.jsp").forward(request, response);
-
 		} 
 		
 		
