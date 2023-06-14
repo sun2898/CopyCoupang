@@ -1,31 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../include/header.jsp"%>
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<title>CUCUMART</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://kit.fontawesome.com/20962f3e4b.js"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<link rel="stylesheet"
-	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="./css/product.css">
-<!--
-        날짜 : 2022/12/06
-        이름 : 박종협
-        내용 : Kmarket main layout
-    -->
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap')
@@ -395,15 +371,14 @@
 	font-weight: bold;
 }
 
-table {
+/* table {
 	border-collapse: collapse;
 	width: 80%;
 	background-color: white;
-}
-
+} */
 th, td {
 	padding: 8px;
-	text-align: left;
+	text-align: center;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -411,40 +386,56 @@ th {
 	background-color: #f2f2f2;
 }
 
-.order-option {
-            margin-top: 10px;
-        }
-</style>
+.payment-option {
+	margin-left: 10px;
+}
 
+.table1 {
+	border-collapse: collapse;
+	width: 80%;
+	background-color: white;
+}
+</style>
 </head>
 <body class="nanum">
 
-		<div align="center">
-			<h3>장바구니</h3>
 
-			<table>
+	<div align="center">
+		<h2>주문하기</h2>
 
+		<table class="table1">
+			<tr>
+				<th>상품명</th>
+				<th>가격</th>
+				<th>수량</th>
+			</tr>
+			<c:forEach var="vo" items="${list }">
 				<tr>
-					<th>상품 이미지</th>
-					<th>상품명</th>
-					<th>가격</th>
-					<th>수량</th>
+					<td>${vo.p_name }</td>
+					<td>${vo.price * vo.count}</td>
+					<td>${vo.count }</td>
 				</tr>
-				<c:forEach var="vo" items="${list }">
-					<tr>
-						<td>${vo.p_name }</td>
-						<td>${vo.price * vo.count}</td>
-						<td>${vo.count }</td>
-					</tr>
-				</c:forEach>
-			</table>
+			</c:forEach>
 
-	<input class="order-option" type="button" value="리뷰 등록" onclick="">
+			<tr>
+				<th><input type="radio" name="payment">카드 
+					<input class="payment-option" type="radio" name="payment">계좌 
+					<input class="payment-option" type="radio" name="payment">무통장</th>
+				<th></th>
+				<th><input type="button" value="결제하기"
+					onclick="location.href='product_complete.pd' "></th>
+			</tr>
+		</table>
 
-		</div>
+		<table>
+			<tr>
+				<th colspan="3">주문자정보</th>
+			</tr>
+			<tr>
+			</tr>
+		</table>
+
+	</div>
+	
 </body>
-<div align="center">
-	<%@ include file="../include/footer.jsp"%>
-</div>
 </html>
-

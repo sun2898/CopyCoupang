@@ -1,6 +1,7 @@
 package com.cucu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cucu.cart.model.CartVO;
+import com.cucu.cart.service.CartService;
+import com.cucu.cart.service.CartServiceImpl;
 import com.cucu.product.model.ProductVO;
 import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
@@ -22,9 +26,7 @@ import com.cucu.review.service.ReviewServiceImplements;
 public class ProductController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	public ProductController() {
-
 		super();
 	}
 
@@ -47,7 +49,8 @@ public class ProductController extends HttpServlet {
 		String command = uri.substring( conPath.length() );
 
 		System.out.println(command);
-
+		
+		CartService cservice = new CartServiceImpl();
 		ProductService service = new ProductServiceImpl();
 		ReviewService rservice = new ReviewServiceImplements();
 		
@@ -69,7 +72,7 @@ public class ProductController extends HttpServlet {
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list.jsp").forward(request, response);
-			
+
 
 		} else if(command.equals("/product/product_detail.pd")) {
 			List<ReviewVO> list = rservice.getReview(request, response);
@@ -81,6 +84,7 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/product/mainpage.pd")) {
 
 			response.sendRedirect("mainpage.jsp");
+
 		//나의판매목록
 		} else if(command.equals("/product/member_myselllist.pd")) {
 			
@@ -88,6 +92,37 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 			
 			request.getRequestDispatcher("member_myselllist.jsp").forward(request, response);
+
+		} else if(command.equals("/product/product_cart.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+			
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
+			
+		} else if(command.equals("/product/product_addcart.pd")) {
+			service.addCart(request, response);
+			List<CartVO> list = cservice.getCart(request, response);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
+			
+		} else if(command.equals("/product/product_order.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+			
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("product_order.jsp").forward(request, response);
+			
+		} else if(command.equals("/product/product_complete.pd")) {
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('구매해주셔서 감사합니다.');");
+			out.println("</script>");
+			
+			cservice.clearCart(request, response);
+			response.sendRedirect(conPath +"/member/home.member");
+
 		}
 
 	}

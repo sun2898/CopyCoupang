@@ -377,13 +377,13 @@
                    	<c:when test="${sessionScope.member_id != null }">
                         <a href="<%=request.getContextPath() %>/member/member_mypage.member" style="color:blue">마이페이지</a>
                         <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
+                        <a href="<%=request.getContextPath() %>/product/product_addcart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                     </c:when>
                     <c:otherwise>
                         <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">로그인</a>
                         <a href="<%=request.getContextPath() %>/member/member_join.member" style="color:red">회원가입</a>
                     </c:otherwise>
                     </c:choose>
-						<a href=""> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
 				</div>
 			</div>
 			<div class="logo">

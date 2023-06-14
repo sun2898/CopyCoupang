@@ -57,9 +57,11 @@
             </div>
             <div class="logo">
                 <div>
+
                     <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300px"
 						alt="헤더로고">
 					</a>
+
                     <form action="#">
                         <input type="text" name="search">
                         <button>
@@ -208,7 +210,6 @@
                     </li>
                 </ul> -->
                 <table>
-
                 	<tr>
                 		<td>
                 			상품사진
@@ -225,12 +226,11 @@
                 	</tr>
                 	<c:forEach var="vo" items="${list }" varStatus="x">
                     <tr>
-                    	
-                        <td><a href="product_content.pd?p_name=${vo.p_name }" class="thumb">
+                        <td><a href="product_detail.pd?p_name=${vo.p_name }" class="thumb">
                             <img src="../img/${vo.imgName }" alt="상품이미지"/>
                         </a></td>
                         <td>  
-                           <a href="product_content.pd?p_name=${vo.p_name }">${vo.p_name }</a>
+                           <a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name }</a>
                         </td>
                         <td>
                             <ul>
@@ -260,7 +260,6 @@
 	                  </form>
                		</td>
                     </tr>
-
                 </table>
                 <div class="paging">
                     <span class="prev">
