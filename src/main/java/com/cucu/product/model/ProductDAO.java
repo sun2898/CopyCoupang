@@ -158,8 +158,6 @@ public class ProductDAO {
 		try {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p_name);
-			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

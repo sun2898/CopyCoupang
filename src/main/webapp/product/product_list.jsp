@@ -51,7 +51,7 @@
                         <a href="<%=request.getContextPath() %>/member/member_join.member" style="color:red">회원가입</a>
                     </c:otherwise>
                     </c:choose>
-						<a href=""> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
+						<a href="product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
 				</div>
 
             </div>
@@ -81,7 +81,6 @@
 					</ul>
 					<ul>
 						<li><a href="#">쿠폰존</a></li>
-						<li><a href="<%=request.getContextPath() %>/review/review_list.member" style="color:black" class="rainbow">사용후기!</a></li>
 						<li><a href="#">개인결제</a></li>
                         <li><a href="#">고객센터</a></li>
                         <li><a href="#">FAQ</a></li>
