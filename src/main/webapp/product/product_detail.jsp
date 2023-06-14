@@ -430,7 +430,7 @@
                 
                 <article class="info">
                     <div class="image">
-                        <img src="../img/${vo.imgName }" alt="상품이미지" width="100" border="1">
+                        <img src="<%=request.getContextPath() %>/img/${vo.imgName }" alt="상품이미지" width="100" border="1">
                     </div>
                     <div class="summary">
                         <nav>
