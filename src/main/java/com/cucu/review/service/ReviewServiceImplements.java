@@ -16,6 +16,7 @@ public class ReviewServiceImplements implements ReviewService {
 	public List<ReviewVO> getReview(HttpServletRequest request, HttpServletResponse response) {
 		List<ReviewVO> list = new ArrayList<>();
 		String name = request.getParameter("p_name");
+
 		ReviewDAO dao = ReviewDAO.getInstance();
 		list = dao.getReivew(name);
 		

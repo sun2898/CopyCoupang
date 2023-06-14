@@ -41,7 +41,6 @@ public class ReviewDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-
 				String review = rs.getString("REVIEW");
 				String id = rs.getString("ID");
 				String name = rs.getString("P_NAME");
