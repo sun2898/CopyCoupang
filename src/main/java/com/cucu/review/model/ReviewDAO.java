@@ -39,12 +39,9 @@ public class ReviewDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p_name);
 			rs = pstmt.executeQuery();
-<<<<<<< HEAD
-			
-			if(rs.next()) {
-=======
+
 			while(rs.next()) {
->>>>>>> 6e06e26cc62b135bf6bc191deef7d865aea6838e
+
 				String review = rs.getString("REVIEW");
 				String id = rs.getString("ID");
 				String name = rs.getString("P_NAME");

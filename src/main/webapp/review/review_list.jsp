@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
+<%@ include file = "../include/header.jsp" %>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<style>
@@ -44,3 +46,7 @@
 
 </body>
 </html>
+
+<div align="center">
+	<%@ include file="../include/footer.jsp"%>
+</div>
