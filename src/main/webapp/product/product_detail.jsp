@@ -477,13 +477,9 @@
                 </ul>
             </aside>
             <section class="view">
-                <nav>
-                    <h1>상품보기</h1>
-                </nav>
-                
                 <article class="info">
                     <div class="image">
-                        <img src="	https://via.placeholder.com/460x460" alt="상품이미지">
+                        <img src="../img/${vo.imgName }" alt="상품이미지">
                     </div>
                     <div class="summary">
                         <nav>

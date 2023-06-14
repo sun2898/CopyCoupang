@@ -18,48 +18,52 @@
     <link rel="stylesheet" href="../css/product.css">
 </head>
 <style>
-		.rainbow {
-		  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-		  -webkit-background-clip: text;
-		  -webkit-text-fill-color: transparent;
-		  animation: sparkling 2s linear infinite;
-		}
-		
-		@keyframes sparkling {
-		  0% {
-		    background-position: 0% 50%;
-		    filter: hue-rotate(0deg);
-		  }
-		  100% {
-		    background-position: 100% 50%;
-		    filter: hue-rotate(360deg);
-		  }
-		}
+      .rainbow {
+        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: sparkling 2s linear infinite;
+      }
+      
+      @keyframes sparkling {
+        0% {
+          background-position: 0% 50%;
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          background-position: 100% 50%;
+          filter: hue-rotate(360deg);
+        }
+      }
 </style>
 <body>
     <div id="wrapper">
         <header>
             <div class="top">
                <div>
-					<c:choose>
-                   	<c:when test="${sessionScope.member_id != null }">
+               <c:choose>
+                      <c:when test="${sessionScope.member_id != null }">
+                   		<c:choose>
+						<c:when test="${sessionScope.member_type != 'B' }">${sessionScope.member_name } (판매자)</c:when>                   		
+                   		<c:otherwise>${sessionScope.member_name } (구매자)</c:otherwise>
+                   		</c:choose>
                         <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">마이페이지</a>
                         <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
+                         <a href="<%=request.getContextPath() %>/product/product_addcart.pd" style="color:black" class="rainbow" > <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                     </c:when>
                     <c:otherwise>
                         <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">로그인</a>
                         <a href="<%=request.getContextPath() %>/member/member_join.member" style="color:red">회원가입</a>
+                        
                     </c:otherwise>
                     </c:choose>
-						<a href="product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
-				</div>
-
+            </div>
             </div>
             <div class="logo">
                 <div>
-                    <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300px"
-						alt="헤더로고">
-					</a>
+                    <a href="<%=request.getContextPath() %>/member/home.jsp"> <img src="../img/JJAPANG.jpg" width="300"
+                  alt="헤더로고">
+               </a>
 
                     <form action="#">
                         <input type="text" name="search">
@@ -72,16 +76,16 @@
             <div class="menu">
                 <div>
                     <ul>
-                        <li><a href="#">히트상품</a></li>
-                        <li><a href="#">추천상품</a></li>
-                        <li><a href="#">최신상품</a></li>
-                        <li><a href="#">인기상품</a></li>
-						<li><a href="#">할인상품</a></li>
+                        <li><a href="<%=request.getContextPath() %>/product/product_list.pd">히트상품</a></li>
+                        <li><a href="<%=request.getContextPath() %>/product/product_list.pd">추천상품</a></li>
+                        <li><a href="<%=request.getContextPath() %>/product/product_list.pd">최신상품</a></li>
+                        <li><a href="<%=request.getContextPath() %>/product/product_list.pd">인기상품</a></li>
+                  		<li><a href="<%=request.getContextPath() %>/product/product_list.pd">할인상품</a></li>
                         <li><a href="<%=request.getContextPath() %>/product/product_list.pd" style="color:black" class="rainbow">짭팡상품!</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">쿠폰존</a></li>
-						<li><a href="#">개인결제</a></li>
+               </ul>
+               <ul>
+                  <li><a href="#">쿠폰존</a></li>
+                  <li><a href="#">개인결제</a></li>
                         <li><a href="#">고객센터</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
@@ -208,24 +212,24 @@
                     </li>
                 </ul> -->
                 <table>
-                	<tr>
-                		<td>
-                			상품사진
-                		</td>
-                		<td>
-                			상품명
-                		</td>
-                		<td>
-                			가격
-                		</td>
-                		<td>
-                			판매자${sessionScope.member_type }
-                		</td>
-                	</tr>
-                	<c:forEach var="vo" items="${list }" varStatus="x">
+                   <tr>
+                      <td>
+                         상품사진
+                      </td>
+                      <td>
+                         상품명
+                      </td>
+                      <td>
+                         가격
+                      </td>
+                      <td>
+                         판매자${sessionScope.member_type }
+                      </td>
+                   </tr>
+                   <c:forEach var="vo" items="${list }" varStatus="x">
                     <tr>
                         <td><a href="product_detail.pd?p_name=${vo.p_name }" class="thumb">
-                            <img src="../img/${vo.imgName }" alt="상품이미지"/>
+                            <img src="<%=request.getContextPath() %>/img/${vo.imgName}" alt="상품이미지"/>
                         </a></td>
                         <td>  
                            <a href="product_detail.pd?p_name=${vo.p_name }">${vo.p_name }</a>
@@ -247,15 +251,15 @@
                         
                     </tr>
                     </c:forEach>
-                       <td colspan="6" align="right">
-	                   <form action="" class="form-inline" >
-	                    <div class="form-group">
-                  		<c:if test="${sessionScope.member_type != 'B' }">
-	                     <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
-                 		</c:if>
-	                    </div>
-	                  </form>
-               		</td>
+                       <td colspan="6" align="center">
+                      <form action="" class="form-inline" >
+                       <div class="form-group">
+                        <c:if test="${sessionScope.member_type == 'S' }">
+                        <input type="button" value="상품등록" onclick="location.href='product_regist.pd'">
+                       </c:if>
+                       </div>
+                     </form>
+                     </td>
                 </table>
                 <div class="paging">
                     <span class="prev">

@@ -76,6 +76,7 @@ public class ProductController extends HttpServlet {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("product_list.jsp").forward(request, response);
 
+
 		} else if(command.equals("/product/product_detail.pd")) {
 			List<ReviewVO> list = rservice.getReview(request, response);
 			ProductVO vo = service.getProduct(request, response);
@@ -139,6 +140,7 @@ public class ProductController extends HttpServlet {
 			
 			cservice.clearCart(request, response);
 			response.sendRedirect(conPath +"/member/home.member");
+
 		}
 
 	}

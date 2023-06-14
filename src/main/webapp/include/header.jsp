@@ -366,18 +366,41 @@
             color: #fe434c;
             font-weight: bold;
         }
+        #searchInput {
+    animation: blink-caret 3s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
+  }
     </style>
+    <script>
+  	window.onload = function() {
+    	var searchInput = document.getElementById('searchInput');
+    	searchInput.focus();
+  	};
+	</script>
 </head>
 <body>
 	<div id="wrapper">
 		<header>
 			<div class="top">
 				<div>
-					<c:choose>
-                   	<c:when test="${sessionScope.member_id != null }">
+						<c:choose>
+                   		<c:when test="${sessionScope.member_id != null }">
+                   		<c:choose>
+						<c:when test="${sessionScope.member_type != 'B' }">${sessionScope.member_name } (판매자)</c:when>                   		
+                   		<c:otherwise>${sessionScope.member_name } (구매자)</c:otherwise>
+                   		</c:choose>
+						
                         <a href="<%=request.getContextPath() %>/member/member_mypage.member" style="color:blue">마이페이지</a>
                         <a href="<%=request.getContextPath() %>/member/member_logout.member" style="color:red">로그아웃</a>
-                        <a href="<%=request.getContextPath() %>/product/product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
+                        <a href="<%=request.getContextPath() %>/product/product_addcart.pd" style="color:black" class="rainbow" > <i class="fa fa-shopping-cart" aria-hidden="true"></i> 장바구니</a>
                     </c:when>
                     <c:otherwise>
                         <a href="<%=request.getContextPath() %>/member/member_login.member" style="color:blue">로그인</a>
@@ -392,21 +415,21 @@
 						alt="헤더로고">
 					</a>
 					<form action="#">
-						<input type="text" name="search">
-						<button>
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button>
+						 <input type="text" name="search" id="searchInput" value="세상에 이런 쇼핑몰은 없었다! 짭팡!" style = "color:lightgrey">
+						  <button>
+						    <i class="fa fa-search" aria-hidden="true"></i>
+						  </button>
 					</form>
 				</div>
 			</div>
 			<div class="menu">
 				<div>
 					<ul>
-						<li><a href="#">히트상품</a></li>
-						<li><a href="#">추천상품</a></li>
-						<li><a href="#">최신상품</a></li>
-						<li><a href="#">인기상품</a></li>
-						<li><a href="#">할인상품</a></li>
+						<li><a href="<%=request.getContextPath() %>/product/product_list.pd">히트상품</a></li>
+						<li><a href="<%=request.getContextPath() %>/product/product_list.pd">추천상품</a></li>
+						<li><a href="<%=request.getContextPath() %>/product/product_list.pd">최신상품</a></li>
+						<li><a href="<%=request.getContextPath() %>/product/product_list.pd">인기상품</a></li>
+						<li><a href="<%=request.getContextPath() %>/product/product_list.pd">할인상품</a></li>
 						<li><a href="<%=request.getContextPath() %>/product/product_list.pd" style="color:black" class="rainbow" >짭팡상품!</a></li>
 					</ul>
 					<ul>
