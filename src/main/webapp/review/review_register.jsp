@@ -1,24 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <head>
+<%@ include file = "../include/header.jsp" %>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-   .xx {
+	<style>
+	  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+      
+        .xx {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-        
-  .font{
-  		font-family : 'Nanum Gothic', serif;
-  		color : black;
-		}
-</style>
+	  
+	  .font{
+	  	font-family : 'Nanum Gothic', serif;
+	  	color : black;
+	  }
+	</style>
 </head>
 <body>
 
@@ -59,4 +61,8 @@
 	
 </div>
 </body>
+<div align="center">
+	<%@ include file="../include/footer.jsp"%>
+</div>
 </html>
+

@@ -58,17 +58,18 @@ public class ProductController extends HttpServlet {
 		
 		//상품등록기능
 		}else if(command.equals("/product/registProduct.pd")) {
-
+			
 			service.insertProduct(request, response);
-			response.sendRedirect("product_list2.pd");
+			session.setAttribute("product_seller", request.getAttribute("seller"));
+			response.sendRedirect("product_list.pd");
 			
 		//리스트출력
-		} else if(command.equals("/product/product_list2.pd")) {
+		} else if(command.equals("/product/product_list.pd")) {
       
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
-
+			request.getRequestDispatcher("product_list.jsp").forward(request, response);
+			
 
 		} else if(command.equals("/product/product_detail.pd")) {
 			List<ReviewVO> list = rservice.getReview(request, response);
@@ -80,8 +81,14 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/product/mainpage.pd")) {
 
 			response.sendRedirect("mainpage.jsp");
-
-		} 
+		//나의판매목록
+		} else if(command.equals("/product/member_myselllist.pd")) {
+			
+			List<ProductVO> list = service.getList(request, response);
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("member_myselllist.jsp").forward(request, response);
+		}
 
 	}
 }

@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String savePath = "C:\\Users\\sssoc\\Desktop\\course\\JSP\\workspace\\JSPProject\\src\\main\\webapp\\img";
+		String savePath = "C:\\Users\\user\\Desktop\\course\\JSPProject\\copyCoupang\\src\\main\\webapp\\img";
 		int maxSize = 5 * 1024* 1024;
 		String enType = "UTF-8";
 		

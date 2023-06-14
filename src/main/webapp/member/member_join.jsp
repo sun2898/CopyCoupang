@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="../include/header2.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <body>
 	<div id="wrapper">
 
@@ -58,7 +58,6 @@ td {
 	 				<input type="radio" name = "m_type" value = "B" checked="checked">구매자
 	 				<input type="radio" name = "m_type" value = "S">판매자
  					</td>
-					
 					
 				</table>
 

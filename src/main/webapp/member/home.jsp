@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="../include/header2.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <body>
 	<div id="wrapper">
 
@@ -28,8 +28,9 @@ td {
 </style>
 
 		<div align="center">
-					<br> <br> <b><font size="6" color="gray">안녕하세요 짭팡입니다!</font></b>
-					<br> <br> <br>
+					<br> <br> <b><font size="6" color="gray">안녕하세요 짭팡입니다!</font></b><br> <br> <br>
+					
+					<h3></h3>					
 
 
 <div align="center">

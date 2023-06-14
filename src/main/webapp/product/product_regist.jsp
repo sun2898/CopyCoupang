@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%@ include file="../include/header2.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <body>
 	<div id="wrapper">
 
@@ -32,7 +32,7 @@ td {
 	<body>	
 		<section>
 			<div align="center">
-					<br> <br> <b><font size="6" color="gray">상품을 등록하세요!</font></b>
+					<br> <br> <b><font size="6" color="gray">판매자님! 상품을 등록하세요!</font></b>
 					<br> <br> <br>
 			</div>		
 		</section>
@@ -49,7 +49,7 @@ td {
 			<tr>
 				<td>판매자</td>
 				<td>
-					<input type="text" name="seller" required="required" size="10" style="width: 50%;">
+					<input type="text" name="seller" value="${sessionScope.member_id }" readonly="readonly" required="required" size="10" style="width: 50%;">
 				</td>
 			</tr>
 			<tr>
@@ -98,7 +98,7 @@ td {
 				<center>
 					<input type="submit" value="완료">
 					&nbsp;&nbsp;
-					<input type="button" value="목록" onclick="location.href='product_list2.pd'">         
+					<input type="button" value="목록" onclick="location.href='product_list.pd'">         
 				</center>
 				</td>
 			</tr>
