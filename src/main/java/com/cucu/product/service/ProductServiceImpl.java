@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String savePath = "C:\\Users\\sssoc\\Desktop\\course\\JSP\\workspace\\JSPProject\\src\\main\\webapp\\img";
+		String savePath = "/img";
 		int maxSize = 5 * 1024* 1024;
 		String enType = "UTF-8";
 		
@@ -59,10 +59,18 @@ public class ProductServiceImpl implements ProductService{
 		ProductDAO dao = ProductDAO.getInstance();
 		
 		String name = request.getParameter("p_name");
-		System.out.println("프로덕트" + name);
+		System.out.println(name);
 		ProductVO vo = dao.getProduct(name);
 		
 		return vo;
 	}
-
+	
+	public void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
+		
+		String p_name = request.getParameter("p_name");
+		ProductDAO dao = ProductDAO.getInstance();
+		dao.deleteProduct(p_name);
+		
+	}
+	
 }

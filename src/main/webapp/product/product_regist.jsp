@@ -40,7 +40,7 @@
 			<tr>
 				<td>상품이미지</td>
 				<td>
-					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);"/>
+					<input type="file" name="imgName" id="img" accept="image/*" onchange="setThumbnail(event);" />
 					<div id="image_container"></div>
 					<script>
 				      function setThumbnail(event) {
@@ -63,7 +63,7 @@
 				<center>
 					<input type="submit" value="완료">
 					&nbsp;&nbsp;
-					<input type="button" value="목록" onclick="location.href='product_list2.pd'">         
+					<input type="button" value="목록" onclick="location.href='product_list.pd'">         
 				</center>
 				</td>
 			</tr>

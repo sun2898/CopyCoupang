@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.cucu.cart.model.CartVO;
+import com.cucu.cart.service.CartService;
+import com.cucu.cart.service.CartServiceImpl;
 import com.cucu.product.model.ProductVO;
 import com.cucu.product.service.ProductService;
 import com.cucu.product.service.ProductServiceImpl;
@@ -50,6 +53,7 @@ public class ProductController extends HttpServlet {
 
 		ProductService service = new ProductServiceImpl();
 		ReviewService rservice = new ReviewServiceImplements();
+		CartService cservice = new CartServiceImpl();
 		
 		//상품등록화면
 		if(command.equals("/product/product_regist.pd")) {
@@ -60,14 +64,14 @@ public class ProductController extends HttpServlet {
 		}else if(command.equals("/product/registProduct.pd")) {
 
 			service.insertProduct(request, response);
-			response.sendRedirect("product_list2.pd");
+			response.sendRedirect("product_list.pd");
 			
 		//리스트출력
-		} else if(command.equals("/product/product_list2.pd")) {
+		} else if(command.equals("/product/product_list.pd")) {
 
 			List<ProductVO> list = service.getList(request, response);
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("product_list2.jsp").forward(request, response);
+			request.getRequestDispatcher("product_list.jsp").forward(request, response);
 
 
 		} else if(command.equals("/product/product_detail.pd")) {
@@ -80,8 +84,26 @@ public class ProductController extends HttpServlet {
 		} else if(command.equals("/product/mainpage.pd")) {
 
 			response.sendRedirect("mainpage.jsp");
+			
+		}  else if(command.equals("/product/product_cart.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
 
-		} 
+			request.setAttribute("list", list);
+
+			request.getRequestDispatcher("product_cart.jsp").forward(request, response);
+		} else if(command.equals("/product/product_addcart.pd")) {
+			cservice.addCart(request, response);
+
+			request.getRequestDispatcher("product_cart.pd").forward(request, response);
+
+		} else if(command.equals("/product/product_order.pd")) {
+			List<CartVO> list = cservice.getCart(request, response);
+
+			request.setAttribute("list", list);
+
+			request.getRequestDispatcher("product_order.jsp").forward(request, response);
+
+		}
 
 	}
 }

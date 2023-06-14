@@ -69,9 +69,7 @@ public class ProductDAO {
 
 	public List<ProductVO> getList(){
 		
-
-
-		List<ProductVO> list = new ArrayList();
+		List<ProductVO> list = new ArrayList<>();
 
 		String sql = "SELECT * FROM PRODUCT";
 		
@@ -148,5 +146,37 @@ public class ProductDAO {
 		}
 		return vo;
 	}
-
+	
+	public void deleteProduct(String p_name) {
+		
+		String sql = "DELETE FROM PRODUCT WHERE P_NAME = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p_name);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 }

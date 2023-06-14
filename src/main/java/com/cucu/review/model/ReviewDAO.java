@@ -28,28 +28,26 @@ public class ReviewDAO {
 	private String uid = "JSPPN";
 	private String upw = "JSPPN";
 	
-	public List<ReviewVO> getReivew(String m_id, String p_name){
+	public List<ReviewVO> getReivew(String p_name){
 		List<ReviewVO> list = new ArrayList<>();
-		String sql = "select * from review where m_id = ? and p_name = ?";
+		String sql = "select * from review where p_name = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, m_id);
-			pstmt.setString(2, p_name);
+			pstmt.setString(1, p_name);
 			rs = pstmt.executeQuery();
-			System.out.println("2");
+			
 			if(rs.next()) {
 				String review = rs.getString("REVIEW");
-				String id = rs.getString("M_ID");
+				String id = rs.getString("ID");
 				String name = rs.getString("P_NAME");
 				Timestamp regdate = rs.getTimestamp("REGDATE");
 				int star = rs.getInt("STAR");
 				ReviewVO vo = new ReviewVO(review, id, name, regdate, star);
 				list.add(vo);
-				System.out.println("1");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
