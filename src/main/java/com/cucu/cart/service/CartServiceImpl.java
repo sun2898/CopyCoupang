@@ -20,4 +20,12 @@ public class CartServiceImpl implements CartService {
 		return list;
 	}
 
+	@Override
+	public void clearCart(HttpServletRequest request, HttpServletResponse response) {
+		
+		CartDAO dao = CartDAO.getInstance();
+		dao.clearCart();
+		
+	}
+
 }

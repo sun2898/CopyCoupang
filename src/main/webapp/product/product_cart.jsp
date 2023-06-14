@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="../include/header2.jsp"%>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -417,41 +418,6 @@ th {
 </style>
 </head>
 <body class="nanum">
-	<div id="wrapper">
-		<header>
-			<div class="top">
-				<div>
-					<a href="">로그인</a> 
-					<a href="">회원가입</a> 
-					<a href="">마이페이지</a> 
-					<a href="product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>장바구니</a>
-				</div>
-			</div>
-			<div class="logo">
-				<div>
-					<a href="product_list.pd"> <img src="../img/JJAPANG.jpg"
-						width="300px" alt="헤더로고">
-					</a>
-					<form action="#">
-						<input type="text" name="search">
-						<button>
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button>
-					</form>
-				</div>
-			</div>
-			<div class="menu">
-				<div>
-					<ul>
-						<li><a href="#">히트상품</a></li>
-						<li><a href="#">추천상품</a></li>
-						<li><a href="#">최신상품</a></li>
-						<li><a href="#">인기상품</a></li>
-						<li><a href="#">할인상품</a></li>
-					</ul>
-				</div>
-			</div>
-		</header>
 
 		<div align="center">
 			<h3>장바구니</h3>
@@ -473,6 +439,7 @@ th {
 			</table>
 
 	<input class="order-option" type="button" value="주문하기" onclick="location.href='product_order.pd'">
+	<input class="order-option" type="button" value="쇼핑 더 하기" onclick="location.href='product_list.pd'">
 
 		</div>
 	</div>

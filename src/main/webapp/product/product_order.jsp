@@ -1,26 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<meta charset="UTF-8">
-<title>CUCUMART</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://kit.fontawesome.com/20962f3e4b.js"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<link rel="stylesheet"
-	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="./css/product.css">
+<%@ include file="../include/header2.jsp"%>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap')
@@ -395,7 +376,6 @@
 	width: 80%;
 	background-color: white;
 } */
-
 th, td {
 	padding: 8px;
 	text-align: center;
@@ -405,9 +385,11 @@ th, td {
 th {
 	background-color: #f2f2f2;
 }
+
 .payment-option {
-            margin-left: 10px;
-        }
+	margin-left: 10px;
+}
+
 .table1 {
 	border-collapse: collapse;
 	width: 80%;
@@ -416,43 +398,7 @@ th {
 </style>
 </head>
 <body class="nanum">
-	<div id="wrapper">
-		<header>
-			<div class="top">
-				<div>
-					<a href="">로그인</a>
-					<a href="">회원가입</a>
-					<a href="">마이페이지</a>
-					<a href="product_cart.pd"> <i class="fa fa-shopping-cart" aria-hidden="true"></i>장바구니</a>
-				</div>
-			</div>
-			<div class="logo">
-				<div>
-					<a href="product_list.pd"> <img src="../img/JJAPANG.jpg"
-						width="300px" alt="헤더로고">
-					</a>
-					<form action="#">
-						<input type="text" name="search">
-						<button>
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button>
-					</form>
-				</div>
-			</div>
-			<div class="menu">
-				<div>
-					<ul>
-						<li><a href="#">히트상품</a></li>
-						<li><a href="#">추천상품</a></li>
-						<li><a href="#">최신상품</a></li>
-						<li><a href="#">인기상품</a></li>
-						<li><a href="#">할인상품</a></li>
-					</ul>
-				</div>
-			</div>
-		</header>
-	</div>
-<body>
+
 
 	<div align="center">
 		<h2>주문하기</h2>
@@ -470,47 +416,26 @@ th {
 					<td>${vo.count }</td>
 				</tr>
 			</c:forEach>
-			
+
 			<tr>
-				<th><input type="radio" name="payment">카드
-								<input class="payment-option" type="radio" name="payment">계좌
-								<input class="payment-option" type="radio" name="payment">무통장
-				</th>
+				<th><input type="radio" name="payment">카드 
+					<input class="payment-option" type="radio" name="payment">계좌 
+					<input class="payment-option" type="radio" name="payment">무통장</th>
 				<th></th>
-				<th><input type="button" value="결제하기" onclick="location.href='product_cart.pd' "></th>
+				<th><input type="button" value="결제하기"
+					onclick="location.href='product_complete.pd' "></th>
 			</tr>
-			
 		</table>
-		
+
 		<table>
 			<tr>
 				<th colspan="3">주문자정보</th>
 			</tr>
-			
 			<tr>
-				
 			</tr>
-		
-		
-		
 		</table>
-	
-	
-
 
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 </body>
 </html>

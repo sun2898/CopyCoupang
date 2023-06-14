@@ -23,9 +23,9 @@ public class CartDAO {
 		return instance;
 	}
 	
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String uid = "JSP";
-	private String upw = "JSP";
+	private String url = "jdbc:oracle:thin:@172.30.1.89:1521:xe";
+	private String uid = "JSPPN";
+	private String upw = "JSPPN";
 	
 	public List<CartVO> getCart() {
 		List<CartVO> list = new ArrayList<>();
@@ -58,6 +58,24 @@ public class CartDAO {
 		return list;
 	}
 	
-	
+	public void clearCart() {
+		String sql = "delete from cart";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = DriverManager.getConnection(url,uid,upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 	
 }

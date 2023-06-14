@@ -98,7 +98,7 @@ td {
 				<center>
 					<input type="submit" value="완료">
 					&nbsp;&nbsp;
-					<input type="button" value="목록" onclick="location.href='product_list2.pd'">         
+					<input type="button" value="목록" onclick="location.href='product_list.pd'">         
 				</center>
 				</td>
 			</tr>
